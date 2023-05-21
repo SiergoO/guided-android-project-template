@@ -1,4 +1,4 @@
-package com.template.application.ui.theme
+package com.template.perfectprojecttemplate.ui.theme
 
 import android.app.Activity
 import android.os.Build

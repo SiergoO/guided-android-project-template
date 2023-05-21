@@ -1,4 +1,4 @@
-package com.template.application
+package com.template.perfectprojecttemplate
 
 import org.junit.Test
 

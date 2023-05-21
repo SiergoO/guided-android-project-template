@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Application"
-include ':app'
+rootProject.name = "PerfectProjectTemplate"
+include (listOf(":app"))
