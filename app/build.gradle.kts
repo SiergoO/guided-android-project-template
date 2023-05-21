@@ -1,20 +1,23 @@
+import dependencies.Dependencies
+
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(Plugins.ANDROID_APPLICATION)
+    id(Plugins.KOTLIN_ANDROID)
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".app"
-    compileSdk = 33
+    namespace = AndroidConfig.Project.NAMESPACE
+    compileSdk = AndroidConfig.SDK.COMPILE_VERSION
 
     defaultConfig {
-        applicationId = "com.template.application"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = AndroidConfig.App.APPLICATION_ID
+        minSdk = AndroidConfig.SDK.MIN_VERSION
+        targetSdk = AndroidConfig.SDK.TARGET_VERSION
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        versionCode = AndroidConfig.App.VERSION_CODE
+        versionName = AndroidConfig.App.VERSION_NAME
+
+        testInstrumentationRunner = AndroidConfig.Test.TEST_INSTRUMENTATION_RUNNER
     }
 
     buildTypes {
@@ -25,16 +28,30 @@ android {
             )
         }
     }
+
+    applicationVariants.all {
+        outputs.all {
+            val editableOutput = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
+            val apkName = with(AndroidConfig.ApplicationOutput) {
+                "$APPLICATION_NAME-${VERSION_NAME}($VERSION_CODE)-${buildType.name}.apk"
+            }
+            editableOutput.outputFileName = apkName
+        }
+    }
+
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
     buildFeatures {
         compose = true
     }
+
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.2"
+        kotlinCompilerExtensionVersion = AndroidConfig.Kotlin.VERSION
     }
-    packagingOptions {
+
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -42,18 +59,18 @@ android {
 }
 
 dependencies {
+    implementation(Dependencies.Compose.UI)
+    implementation(Dependencies.Compose.FOUNDATION)
+    implementation(Dependencies.Compose.MATERIAL)
+    implementation(Dependencies.Compose.ACTIVITY)
+    implementation(Dependencies.Compose.NAVIGATION)
+    implementation(Dependencies.Compose.PERMISSION)
+    implementation(Dependencies.Compose.MATERIAL_ICONS)
 
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-    implementation("androidx.activity:activity-compose:1.5.1")
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation ("androidx.compose.ui:ui-test-junit4")
-    debugImplementation ("androidx.compose.ui:ui-tooling")
-    debugImplementation ("androidx.compose.ui:ui-test-manifest")
+    implementation(Dependencies.KoIn.CORE)
+    implementation(Dependencies.KoIn.ANDROID)
+
+    implementation(Dependencies.Test.JUNIT_KTX)
+    androidTestImplementation(Dependencies.Test.JUNIT)
+    androidTestImplementation(Dependencies.Test.ESPRESSO_CORE)
 }

@@ -1,5 +1,10 @@
 object AndroidConfig {
 
+    object Project {
+        // TODO("Change namespace")
+        const val NAMESPACE = "com.template"
+    }
+
     // TODO("Change application object name")
     object App {
         private const val VERSION_MAJOR = 0
@@ -12,19 +17,25 @@ object AndroidConfig {
         const val VERSION_NAME = "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
     }
 
-    object Project {
-        // TODO("Change namespace")
-        const val NAMESPACE = "com.template"
+    object SDK {
+        const val COMPILE_VERSION = 33
+        const val MIN_VERSION = 24
+        const val TARGET_VERSION = 33
+    }
+
+    object ApplicationOutput {
+        // TODO("Change output application name")
+        const val APPLICATION_NAME = "Perfect-project-template"
+        const val VERSION_CODE = App.VERSION_CODE
+        const val VERSION_NAME = App.VERSION_NAME
     }
 
     object Kotlin {
         // TODO("Change Kotlin version to latest")
-        const val KOTLIN_VERSION = "1.8.21"
+        const val VERSION = "1.8.21"
     }
 
-    object SDK {
-        const val COMPILE_SDK_VERSION = 33
-        const val MIN_SDK_VERSION = 24
-        const val TARGET_SDK_VERSION = 33
+    object Test {
+        const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
     }
 }
