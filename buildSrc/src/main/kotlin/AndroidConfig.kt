@@ -35,6 +35,11 @@ object AndroidConfig {
         const val VERSION = "1.8.21"
     }
 
+    object Compose {
+        // TODO("Change Compose compiler version to latest")
+        const val COMPILER_VERSION = "1.4.7"
+    }
+
     object Test {
         const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
     }

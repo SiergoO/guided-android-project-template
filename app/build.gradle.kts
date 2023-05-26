@@ -1,8 +1,8 @@
-import dependencies.Dependencies
+import dependencies.Dependency
 
 plugins {
-    id(Plugins.ANDROID_APPLICATION)
-    id(Plugins.KOTLIN_ANDROID)
+    id(Plugin.ANDROID_APPLICATION)
+    id(Plugin.KOTLIN_ANDROID)
 }
 
 android {
@@ -39,8 +39,13 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     buildFeatures {
@@ -48,7 +53,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = AndroidConfig.Kotlin.VERSION
+        kotlinCompilerExtensionVersion = AndroidConfig.Compose.COMPILER_VERSION
     }
 
     packaging {
@@ -59,18 +64,25 @@ android {
 }
 
 dependencies {
-    implementation(Dependencies.Compose.UI)
-    implementation(Dependencies.Compose.FOUNDATION)
-    implementation(Dependencies.Compose.MATERIAL)
-    implementation(Dependencies.Compose.ACTIVITY)
-    implementation(Dependencies.Compose.NAVIGATION)
-    implementation(Dependencies.Compose.PERMISSION)
-    implementation(Dependencies.Compose.MATERIAL_ICONS)
 
-    implementation(Dependencies.KoIn.CORE)
-    implementation(Dependencies.KoIn.ANDROID)
+    implementation(project(Module.DATA))
+    implementation(project(Module.PRESENTATION))
 
-    implementation(Dependencies.Test.JUNIT_KTX)
-    androidTestImplementation(Dependencies.Test.JUNIT)
-    androidTestImplementation(Dependencies.Test.ESPRESSO_CORE)
+    implementation(Dependency.Compose.UI)
+    implementation(Dependency.Compose.FOUNDATION)
+    implementation(Dependency.Compose.MATERIAL)
+    implementation(Dependency.Compose.MATERIAL3)
+    implementation(Dependency.Compose.ACTIVITY)
+    implementation(Dependency.Compose.NAVIGATION)
+    implementation(Dependency.Compose.PERMISSION)
+    implementation(Dependency.Compose.MATERIAL_ICONS)
+
+    implementation(Dependency.SPLASH)
+
+    implementation(Dependency.KoIn.CORE)
+    implementation(Dependency.KoIn.ANDROID)
+
+    implementation(Dependency.Test.JUNIT_KTX)
+    androidTestImplementation(Dependency.Test.JUNIT)
+    androidTestImplementation(Dependency.Test.ESPRESSO_CORE)
 }

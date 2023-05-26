@@ -1,18 +1,18 @@
 package dependencies
 
-object Dependencies {
+object Dependency {
 
     object Compose {
-        private const val VERSION_COMPOSE = "1.3.1"
-        private const val VERSION_ACCOMPANIST = "0.30.0"
+        private const val VERSION_COMPOSE = "1.4.3"
+        private const val VERSION_ACCOMPANIST = "0.30.1"
         const val UI = "androidx.compose.ui:ui:$VERSION_COMPOSE"
         const val TOOLING = "androidx.compose.ui:ui-tooling:$VERSION_COMPOSE"
         const val PREVIEW = "androidx.compose.ui:ui-tooling-preview:$VERSION_COMPOSE"
         const val FOUNDATION = "androidx.compose.foundation:foundation:$VERSION_COMPOSE"
         const val MATERIAL = "androidx.compose.material:material:$VERSION_COMPOSE"
-        const val MATERIAL3 = "androidx.compose.material3:material3:1.0.1"
+        const val MATERIAL3 = "androidx.compose.material3:material3:1.1.0"
         const val MATERIAL_ICONS = "androidx.compose.material:material-icons-extended:$VERSION_COMPOSE"
-        const val ACTIVITY = "androidx.activity:activity-compose:1.6.1"
+        const val ACTIVITY = "androidx.activity:activity-compose:1.7.1"
         const val NAVIGATION = "androidx.navigation:navigation-compose:2.5.3"
         const val SUSTEM_UI = "com.google.accompanist:accompanist-systemuicontroller:$VERSION_ACCOMPANIST"
         const val PERMISSION = "com.google.accompanist:accompanist-permissions:$VERSION_ACCOMPANIST"
@@ -44,6 +44,7 @@ object Dependencies {
         const val CORE = "io.insert-koin:koin-core:$VERSION"
     }
 
+    // TODO("Delete if there are no plans for using this lib/api")
     object Room {
         private const val VERSION = "2.5.1"
         const val KTX = "androidx.room:room-ktx:$VERSION"
@@ -51,8 +52,9 @@ object Dependencies {
         const val COMPILER = "androidx.room:room-compiler:$VERSION"
     }
 
+    // TODO("Delete if there are no plans for using this lib/api")
     object Ktor {
-        private const val VERSION = "2.2.1"
+        private const val VERSION = "2.3.0"
         const val CORE = "io.ktor:ktor-client-core:${VERSION}"
         const val CIO = "io.ktor:ktor-client-cio:${VERSION}"
         const val OKHTTP = "io.ktor:ktor-client-okhttp:${VERSION}"
@@ -69,6 +71,8 @@ object Dependencies {
         const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:3.5.1"
     }
 
-    const val SERIALIZATION = "org.jetbrains.kotlinyx:kotlinx-serialization-json:1.5.1"
+    const val SPLASH = "androidx.core:core-splashscreen:1.0.1"
+    const val SERIALIZATION = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1"
     const val DATASTORE = "androidx.datastore:datastore-preferences:1.0.0"
+    const val TIMBER = "com.jakewharton.timber:timber:5.0.1"
 }
