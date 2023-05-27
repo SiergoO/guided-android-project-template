@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-//    implementation(project(Module.Core.DOMAIN))
+    implementation(project(Module.DOMAIN))
 
     implementation(Dependency.Coroutines.CORE)
 

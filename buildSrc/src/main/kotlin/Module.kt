@@ -8,6 +8,7 @@ object Module {
     const val COMMON = ":common"
     const val DATA = ":data"
     const val DOMAIN = ":domain"
+    const val PRESENTAION = ":presentation"
 
     object Presentation {
         const val FIRST = ":presentation:first"

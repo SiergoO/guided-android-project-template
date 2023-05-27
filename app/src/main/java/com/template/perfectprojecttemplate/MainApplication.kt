@@ -1,6 +1,8 @@
 package com.template.perfectprojecttemplate
 
 import android.app.Application
+import com.template.data.di.dataModules
+import com.template.domain.usecase.di.domainModules
 import com.template.first.di.firstModule
 import com.template.second.di.secondModule
 import org.koin.android.ext.koin.androidContext
@@ -12,8 +14,8 @@ class MainApplication : Application() {
         startKoin {
             androidContext(this@MainApplication)
             modules(firstModule, secondModule)
-//            modules(koinDomainModules)
-//            modules(koinPresentationModules)
+            modules(domainModules)
+            modules(dataModules)
         }
         super.onCreate()
     }
