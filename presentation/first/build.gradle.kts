@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".presentation"
+    namespace = AndroidConfig.Project.NAMESPACE + ".first"
     compileSdk = AndroidConfig.SDK.COMPILE_VERSION
 
     defaultConfig {
@@ -32,6 +32,11 @@ android {
 }
 
 dependencies {
+
+    implementation(Dependency.KoIn.CORE)
+    implementation(Dependency.KoIn.ANDROID)
+    implementation(Dependency.KoIn.COMPOSE)
+
     implementation(Dependency.Compose.UI)
     implementation(Dependency.Compose.FOUNDATION)
     implementation(Dependency.Compose.MATERIAL)

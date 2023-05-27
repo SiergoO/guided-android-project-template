@@ -46,6 +46,10 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
+
+        freeCompilerArgs = freeCompilerArgs + listOf(
+            "-opt-in=androidx.compose.animation.ExperimentalAnimationApi"
+        )
     }
 
     buildFeatures {
@@ -66,14 +70,15 @@ android {
 dependencies {
 
     implementation(project(Module.DATA))
-    implementation(project(Module.PRESENTATION))
+    implementation(project(Module.DOMAIN))
+    implementation(project(Module.Presentation.FIRST))
 
     implementation(Dependency.Compose.UI)
     implementation(Dependency.Compose.FOUNDATION)
     implementation(Dependency.Compose.MATERIAL)
     implementation(Dependency.Compose.MATERIAL3)
     implementation(Dependency.Compose.ACTIVITY)
-    implementation(Dependency.Compose.NAVIGATION)
+    implementation(Dependency.Compose.ANIMATED_NAVIGATION)
     implementation(Dependency.Compose.PERMISSION)
     implementation(Dependency.Compose.MATERIAL_ICONS)
 

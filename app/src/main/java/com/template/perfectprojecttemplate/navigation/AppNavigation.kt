@@ -1,25 +1,26 @@
 package com.template.perfectprojecttemplate.navigation
 
-import android.window.SplashScreen
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import com.template.presentation.FirstScreen
+import com.google.accompanist.navigation.animation.composable
+import com.google.accompanist.navigation.animation.AnimatedNavHost
+import com.template.presentation.ui.FirstScreen
 
 @Composable
 fun AppNavigation(
     navController: NavHostController,
-    startDestination: String = NavDestination.First.destination
+    startDestination: String,
 ) {
-    NavHost(
+    AnimatedNavHost(
         navController = navController,
-        startDestination = startDestination
-    ) {
-        onFirstScreen(navController)
-    }
+        startDestination = startDestination,
+        builder = {
+            onFirstScreen(navController)
+        }
+    )
 }
 
 private fun NavGraphBuilder.onFirstScreen(
@@ -28,6 +29,8 @@ private fun NavGraphBuilder.onFirstScreen(
     composable(
         route = NavDestination.First.destination
     ) {
-        FirstScreen("Serg")
+        FirstScreen {
+
+        }
     }
 }

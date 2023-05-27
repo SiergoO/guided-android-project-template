@@ -7,13 +7,16 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.template.perfectprojecttemplate.navigation.AppNavigation
 import com.template.perfectprojecttemplate.navigation.NavDestination
 
 @Composable
-internal fun MainScreen(onLauncherFinished : () -> Unit) {
-    val navController = rememberNavController()
+internal fun MainLauncher(
+    onContainerReady: () -> Unit
+) {
+    val animatedNavController = rememberAnimatedNavController()
+
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         contentColor = MaterialTheme.colorScheme.background
@@ -25,10 +28,10 @@ internal fun MainScreen(onLauncherFinished : () -> Unit) {
             contentColor = MaterialTheme.colorScheme.background
         ) {
             AppNavigation(
-                navController = navController,
+                navController = animatedNavController,
                 startDestination = NavDestination.First.destination
             )
         }
     }
-    onLauncherFinished()
+    onContainerReady()
 }

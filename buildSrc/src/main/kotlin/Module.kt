@@ -7,5 +7,8 @@ object Module {
     const val APP = ":app"
     const val DATA = ":data"
     const val DOMAIN = ":domain"
-    const val PRESENTATION = ":presentation"
+
+    object Presentation {
+        const val FIRST = ":presentation:first"
+    }
 }

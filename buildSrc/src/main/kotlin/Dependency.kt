@@ -13,7 +13,7 @@ object Dependency {
         const val MATERIAL3 = "androidx.compose.material3:material3:1.1.0"
         const val MATERIAL_ICONS = "androidx.compose.material:material-icons-extended:$VERSION_COMPOSE"
         const val ACTIVITY = "androidx.activity:activity-compose:1.7.1"
-        const val NAVIGATION = "androidx.navigation:navigation-compose:2.5.3"
+        const val ANIMATED_NAVIGATION = "com.google.accompanist:accompanist-navigation-animation:$VERSION_ACCOMPANIST"
         const val SUSTEM_UI = "com.google.accompanist:accompanist-systemuicontroller:$VERSION_ACCOMPANIST"
         const val PERMISSION = "com.google.accompanist:accompanist-permissions:$VERSION_ACCOMPANIST"
     }
@@ -42,6 +42,7 @@ object Dependency {
         private const val VERSION = "3.4.0"
         const val ANDROID = "io.insert-koin:koin-android:$VERSION"
         const val CORE = "io.insert-koin:koin-core:$VERSION"
+        const val COMPOSE = "io.insert-koin:koin-androidx-compose:$VERSION"
     }
 
     // TODO("Delete if there are no plans for using this lib/api")
