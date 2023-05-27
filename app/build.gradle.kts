@@ -69,9 +69,11 @@ android {
 
 dependencies {
 
+    implementation(project(Module.COMMON))
     implementation(project(Module.DATA))
     implementation(project(Module.DOMAIN))
     implementation(project(Module.Presentation.FIRST))
+    implementation(project(Module.Presentation.SECOND))
 
     implementation(Dependency.Compose.UI)
     implementation(Dependency.Compose.FOUNDATION)
@@ -81,6 +83,8 @@ dependencies {
     implementation(Dependency.Compose.ANIMATED_NAVIGATION)
     implementation(Dependency.Compose.PERMISSION)
     implementation(Dependency.Compose.MATERIAL_ICONS)
+
+    implementation(Dependency.OrbitMVI.CORE)
 
     implementation(Dependency.SPLASH)
 

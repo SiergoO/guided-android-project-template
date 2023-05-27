@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".first"
+    namespace = AndroidConfig.Project.NAMESPACE + ".second"
     compileSdk = AndroidConfig.SDK.COMPILE_VERSION
 
     defaultConfig {

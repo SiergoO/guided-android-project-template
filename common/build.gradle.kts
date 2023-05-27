@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".first"
+    namespace = AndroidConfig.Project.NAMESPACE + ".common"
     compileSdk = AndroidConfig.SDK.COMPILE_VERSION
 
     defaultConfig {
@@ -33,12 +33,8 @@ android {
 
 dependencies {
 
-    implementation(project(Module.COMMON))
-    implementation(project(Module.DOMAIN))
-
     implementation(Dependency.KoIn.CORE)
     implementation(Dependency.KoIn.ANDROID)
-    implementation(Dependency.KoIn.COMPOSE)
 
     implementation(Dependency.Compose.UI)
     implementation(Dependency.Compose.FOUNDATION)
@@ -51,6 +47,4 @@ dependencies {
     implementation(Dependency.Compose.TOOLING)
 
     implementation(Dependency.OrbitMVI.CORE)
-    implementation(Dependency.OrbitMVI.VIEWMODEL)
-    implementation(Dependency.OrbitMVI.COMPOSE)
 }

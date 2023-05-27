@@ -16,6 +16,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "PerfectProjectTemplate"
 include(":app")
+include(":common")
 include(":data")
 include(":domain")
 include(":presentation:first")
+include(":presentation:second")

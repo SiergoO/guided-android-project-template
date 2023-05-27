@@ -1,13 +1,13 @@
 package com.template.perfectprojecttemplate.navigation
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.template.presentation.ui.FirstScreen
+import com.template.first.ui.FirstScreen
+import com.template.first.ui.SecondScreen
 
 @Composable
 fun AppNavigation(
@@ -19,6 +19,7 @@ fun AppNavigation(
         startDestination = startDestination,
         builder = {
             onFirstScreen(navController)
+            onSecondScreen(navController)
         }
     )
 }
@@ -30,7 +31,17 @@ private fun NavGraphBuilder.onFirstScreen(
         route = NavDestination.First.destination
     ) {
         FirstScreen {
-
+            navController.navigate(NavDestination.Second.destination)
         }
+    }
+}
+
+private fun NavGraphBuilder.onSecondScreen(
+    navController: NavController
+) {
+    composable(
+        route = NavDestination.Second.destination
+    ) {
+        SecondScreen()
     }
 }
