@@ -1,8 +1,6 @@
-package com.template.first.viewmodel
+package com.template.second.viewmodel
 
 import com.template.common.base.BaseViewModel
-import org.orbitmvi.orbit.syntax.simple.intent
-import org.orbitmvi.orbit.syntax.simple.postSideEffect
 
 class SecondViewModel(
 

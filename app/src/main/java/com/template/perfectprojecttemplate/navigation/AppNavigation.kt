@@ -7,7 +7,7 @@ import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.template.first.ui.FirstScreen
-import com.template.first.ui.SecondScreen
+import com.template.second.ui.SecondScreen
 
 @Composable
 fun AppNavigation(
