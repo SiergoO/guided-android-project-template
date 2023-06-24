@@ -1,8 +1,6 @@
-import dependencies.Dependency
-
 plugins {
-    id(Plugin.ANDROID_LIBRARY)
-    id(Plugin.KOTLIN_ANDROID)
+    id(libs.plugins.android.library.get().pluginId) apply true
+    id(libs.plugins.kotlin.android.get().pluginId) apply true
 }
 
 android {
@@ -20,7 +18,6 @@ android {
 }
 
 dependencies {
-    implementation(Dependency.Coroutines.CORE)
-
-    implementation(Dependency.KoIn.CORE)
+    implementation(libs.coroutines.core)
+    implementation(libs.koin.core)
 }

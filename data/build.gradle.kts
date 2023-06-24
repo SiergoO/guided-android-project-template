@@ -1,9 +1,7 @@
-import dependencies.Dependency
-
 plugins {
-    id(Plugin.ANDROID_LIBRARY)
-    id(Plugin.KOTLIN_ANDROID)
-    id(Plugin.SERIALIZATION)
+    id(libs.plugins.android.library.get().pluginId) apply true
+    id(libs.plugins.kotlin.android.get().pluginId) apply true
+    id(libs.plugins.serialization.get().pluginId) apply true
 }
 
 android {
@@ -31,21 +29,10 @@ android {
 dependencies {
     implementation(project(Module.DOMAIN))
 
-    implementation(Dependency.Coroutines.CORE)
-
-    implementation(Dependency.KoIn.ANDROID)
-    implementation(Dependency.KoIn.CORE)
-
-    implementation(Dependency.Ktor.CORE)
-    implementation(Dependency.Ktor.CIO)
-    implementation(Dependency.Ktor.OKHTTP)
-    implementation(Dependency.Ktor.NEGOTIATION)
-    implementation(Dependency.Ktor.SERIALIZATION)
-    implementation(Dependency.Ktor.LOGGING)
-    implementation(Dependency.Ktor.AUTH)
-
-    implementation(Dependency.DATASTORE)
-    implementation(Dependency.SERIALIZATION)
-
-    implementation(Dependency.TIMBER)
+    implementation(libs.coroutines.core)
+    implementation(libs.bundles.di)
+    implementation(libs.bundles.network)
+    implementation(libs.datastore)
+    implementation(libs.serialization.json)
+    implementation(libs.bundles.log)
 }

@@ -1,4 +1,4 @@
-package com.template.domain.usecase.di
+package com.template.domain.di
 
 import com.template.domain.usecase.GetFirstTitleUse
 import com.template.domain.usecase.GetSecondTitleUseCase

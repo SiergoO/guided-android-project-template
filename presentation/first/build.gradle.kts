@@ -1,8 +1,6 @@
-import dependencies.Dependency
-
 plugins {
-    id(Plugin.ANDROID_LIBRARY)
-    id(Plugin.KOTLIN_ANDROID)
+    id(libs.plugins.android.library.get().pluginId) apply true
+    id(libs.plugins.kotlin.android.get().pluginId) apply true
 }
 
 android {
@@ -36,25 +34,17 @@ dependencies {
     implementation(project(Module.COMMON))
     implementation(project(Module.DOMAIN))
 
-    implementation(Dependency.KoIn.CORE)
-    implementation(Dependency.KoIn.ANDROID)
-    implementation(Dependency.KoIn.COMPOSE)
+    implementation(libs.bundles.di)
+    implementation(libs.koin.compose)
 
-    implementation(Dependency.Compose.UI)
-    implementation(Dependency.Compose.FOUNDATION)
-    implementation(Dependency.Compose.MATERIAL)
-    implementation(Dependency.Compose.MATERIAL3)
-    implementation(Dependency.Compose.MATERIAL_ICONS)
-    implementation(Dependency.Compose.ACTIVITY)
-    implementation(Dependency.Compose.SUSTEM_UI)
-    implementation(Dependency.Compose.PREVIEW)
-    implementation(Dependency.Compose.TOOLING)
+    implementation(libs.bundles.ui)
+    implementation(libs.compose.system.ui)
+    implementation(libs.compose.preview)
+    implementation(libs.compose.tooling)
 
-    implementation(Dependency.OrbitMVI.CORE)
-    implementation(Dependency.OrbitMVI.VIEWMODEL)
-    implementation(Dependency.OrbitMVI.COMPOSE)
+    implementation(libs.bundles.orbit)
+    implementation(libs.orbit.compose)
 
-    implementation(Dependency.Test.JUNIT_KTX)
-    androidTestImplementation(Dependency.Test.JUNIT)
-    androidTestImplementation(Dependency.Test.ESPRESSO_CORE)
+    implementation(libs.bundles.test)
+    androidTestImplementation(libs.bundles.test.android)
 }

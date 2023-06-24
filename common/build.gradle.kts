@@ -1,8 +1,6 @@
-import dependencies.Dependency
-
 plugins {
-    id(Plugin.ANDROID_LIBRARY)
-    id(Plugin.KOTLIN_ANDROID)
+    id(libs.plugins.android.library.get().pluginId) apply true
+    id(libs.plugins.kotlin.android.get().pluginId) apply true
 }
 
 android {
@@ -33,18 +31,10 @@ android {
 
 dependencies {
 
-    implementation(Dependency.KoIn.CORE)
-    implementation(Dependency.KoIn.ANDROID)
-
-    implementation(Dependency.Compose.UI)
-    implementation(Dependency.Compose.FOUNDATION)
-    implementation(Dependency.Compose.MATERIAL)
-    implementation(Dependency.Compose.MATERIAL3)
-    implementation(Dependency.Compose.MATERIAL_ICONS)
-    implementation(Dependency.Compose.ACTIVITY)
-    implementation(Dependency.Compose.SUSTEM_UI)
-    implementation(Dependency.Compose.PREVIEW)
-    implementation(Dependency.Compose.TOOLING)
-
-    implementation(Dependency.OrbitMVI.CORE)
+    implementation(libs.bundles.di)
+    implementation(libs.bundles.ui)
+    implementation(libs.compose.system.ui)
+    implementation(libs.compose.preview)
+    implementation(libs.compose.tooling)
+    implementation(libs.orbit.core)
 }
