@@ -1,19 +1,23 @@
 package com.template.domain.di
 
-import com.template.domain.usecase.GetFirstTitleUse
+import com.template.domain.usecase.GetFirstTitleUseCase
 import com.template.domain.usecase.GetSecondTitleUseCase
-import com.template.domain.usecase.base.UseCase
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
-import kotlin.coroutines.CoroutineContext
 
 val useCaseModule = module {
-    single { Dispatchers.IO }
-    factory { GetFirstTitleUse(get(), get()) }
-    factory { GetSecondTitleUseCase(get(), get()) }
+    factory { GetFirstTitleUseCase(get(), get(named("IO"))) }
+    factory { GetSecondTitleUseCase(get(), get(named("IO"))) }
+}
+
+val coroutineDispatcherModule = module {
+    factory(named("IO")) { Dispatchers.IO }
+    factory(named("Main")) { Dispatchers.Main }
+    factory(named("Default")) { Dispatchers.Default }
 }
 
 val domainModules = listOf(
-    useCaseModule
+    useCaseModule,
+    coroutineDispatcherModule
 )
