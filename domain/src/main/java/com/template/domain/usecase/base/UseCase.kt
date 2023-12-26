@@ -1,15 +1,20 @@
 package com.template.domain.usecase.base
 
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
+abstract class UseCase<in P, R> {
 
-abstract class UseCase<in P, out R>(private val coroutineDispatcher: CoroutineDispatcher) {
-
-    suspend operator fun invoke(parameters: P): Result<R> {
-        return withContext(coroutineDispatcher) {
-            execute(parameters)
+    /** Executes the use case synchronously and returns a [R].
+     *
+     * @return a [R] type data wrapped as a [Result].
+     *
+     * @param parameters the input parameters to execute the use case with
+     */
+    operator fun invoke(parameters: P): Result<R> = try {
+        execute(parameters).let { result ->
+            Result.success(result)
         }
+    } catch (t: Throwable) {
+        Result.failure(t)
     }
 
-    protected abstract suspend fun execute(parameters: P): Result<R>
+    protected abstract fun execute(parameters: P): R
 }

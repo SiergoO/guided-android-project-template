@@ -1,19 +1,13 @@
 package com.template.domain.usecase
 
 import com.template.domain.repository.MainRepository
-import com.template.domain.usecase.base.UseCase
+import com.template.domain.usecase.base.SuspendUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 
-class GetFirstTitleUse(
+class GetFirstTitleUseCase(
     private val mainRepository: MainRepository,
     dispatcher: CoroutineDispatcher
-) : UseCase<Unit, String>(dispatcher) {
+) : SuspendUseCase<Unit, String>(dispatcher) {
 
-    override suspend fun execute(parameters: Unit): Result<String> =
-        try {
-            val firstTitle = mainRepository.getFirstTitle()
-            Result.success(firstTitle)
-        } catch (t: Throwable) {
-            Result.failure(t)
-        }
+    override suspend fun execute(parameters: Unit): String = mainRepository.getFirstTitle()
 }

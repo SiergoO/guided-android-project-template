@@ -2,19 +2,19 @@ package com.template.first.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.template.common.base.BaseViewModel
-import com.template.domain.usecase.GetFirstTitleUse
+import com.template.domain.usecase.GetFirstTitleUseCase
 import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.syntax.simple.reduce
 
 class FirstViewModel(
-    getFirstTitleUse: GetFirstTitleUse
+    getFirstTitleUse: GetFirstTitleUseCase
 ) : BaseViewModel<FirstViewModel.State, FirstViewModel.SideEffect>(State()) {
 
     init {
         viewModelScope.launch {
-            getFirstTitleUse.invoke(Unit).onSuccess {
+            getFirstTitleUse(Unit).onSuccess {
                 intent {
                     reduce { state.copy(title = it) }
                 }
