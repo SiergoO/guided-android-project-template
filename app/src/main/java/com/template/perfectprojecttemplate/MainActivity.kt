@@ -3,13 +3,18 @@ package com.template.perfectprojecttemplate
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import com.template.perfectprojecttemplate.navigation.AppNavigation
 import com.template.perfectprojecttemplate.theme.ApplicationTheme
 
 class MainActivity : ComponentActivity() {
 
-    var showSplashScreen: Boolean = true
+    private var showSplashScreen: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +27,12 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ApplicationTheme {
-                MainLauncher {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    contentColor = MaterialTheme.colorScheme.background
+                ) {
                     showSplashScreen = false
+                    AppNavigation()
                 }
             }
         }
