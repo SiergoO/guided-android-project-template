@@ -117,7 +117,7 @@ ui = [
 concurrency = ["coroutines_core", "coroutines_android"]
 database = ["room_compiler", "room_ktx", "room_runtime"]
 di = ["koin_android", "koin_core"]
-log = ["timber"]
+logging = ["timber"]
 orbit = [
     "orbit_compose",
     "orbit_core",

@@ -74,6 +74,7 @@ dependencies {
     implementation(project(Module.Presentation.SECOND))
 
     implementation(libs.bundles.di)
+    implementation(libs.bundles.logging)
     implementation(libs.bundles.ui)
     implementation(libs.compose.navigation.animated)
     implementation(libs.compose.permission)

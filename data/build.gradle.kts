@@ -29,10 +29,10 @@ android {
 dependencies {
     implementation(project(Module.DOMAIN))
 
-    implementation(libs.coroutines.core)
     implementation(libs.bundles.di)
+    implementation(libs.bundles.logging)
     implementation(libs.bundles.network)
+    implementation(libs.coroutines.core)
     implementation(libs.datastore)
     implementation(libs.serialization.json)
-    implementation(libs.bundles.log)
 }
