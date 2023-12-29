@@ -1,45 +1,71 @@
 package com.template.perfectprojecttemplate.navigation
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import com.google.accompanist.navigation.animation.composable
-import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.template.first.ui.FirstScreen
 import com.template.second.ui.SecondScreen
+import timber.log.Timber
 
 @Composable
 fun AppNavigation() {
-    val navController = rememberAnimatedNavController()
+    val navController = rememberNavController()
+    var currentNavDestination: NavDestination by remember { mutableStateOf(NavDestination.Books) }
 
-    AnimatedNavHost(
-        navController = navController,
-        startDestination = NavDestination.First.destination,
-        builder = {
-            onFirstScreen(navController)
-            onSecondScreen(navController)
+    LaunchedEffect(Unit) {
+        navController.currentBackStack.collect {
+            currentNavDestination = NavDestination.getByRoute(navController.currentDestination?.route ?: "")
+            Timber.d(navController.currentBackStack.value.map { it.destination.route }.joinToString())
         }
-    )
+    }
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+            .navigationBarsPadding()
+    ) {
+        NavHost(
+            modifier = Modifier.weight(1f),
+            navController = navController,
+            startDestination = NavDestination.Books.route,
+            builder = {
+                onBooksScreen(navController)
+                onDetailsScreen(navController)
+            }
+        )
+    }
 }
 
-private fun NavGraphBuilder.onFirstScreen(
+private fun NavGraphBuilder.onBooksScreen(
     navController: NavController
 ) {
     composable(
-        route = NavDestination.First.destination
+        route = NavDestination.Books.route
     ) {
         FirstScreen {
-            navController.navigate(NavDestination.Second.destination)
+            navController.navigate(NavDestination.Details.route)
         }
     }
 }
 
-private fun NavGraphBuilder.onSecondScreen(
+private fun NavGraphBuilder.onDetailsScreen(
     navController: NavController
 ) {
     composable(
-        route = NavDestination.Second.destination
+        route = NavDestination.Details.route
     ) {
         SecondScreen()
     }
