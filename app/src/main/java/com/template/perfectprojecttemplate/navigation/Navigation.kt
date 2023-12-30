@@ -21,13 +21,13 @@ import com.template.second.ui.SecondScreen
 import timber.log.Timber
 
 @Composable
-fun AppNavigation() {
+fun Navigation() {
     val navController = rememberNavController()
-    var currentNavDestination: NavDestination by remember { mutableStateOf(NavDestination.Books) }
+    var currentNavDestination: NavDestination by remember { mutableStateOf(NavDestination.Library) }
 
     LaunchedEffect(Unit) {
         navController.currentBackStack.collect {
-            currentNavDestination = NavDestination.getByRoute(navController.currentDestination?.route ?: "")
+            currentNavDestination = NavDestination.getByRoute(navController.currentDestination?.route)
             Timber.d(navController.currentBackStack.value.map { it.destination.route }.joinToString())
         }
     }
@@ -40,33 +40,55 @@ fun AppNavigation() {
         NavHost(
             modifier = Modifier.weight(1f),
             navController = navController,
-            startDestination = NavDestination.Books.route,
+            startDestination = NavDestination.Library.route,
             builder = {
-                onBooksScreen(navController)
-                onDetailsScreen(navController)
+                onLibraryScreen(navController)
+                onBookDetailsScreen(navController)
+                onAuthorDetailsScreen(navController)
+                onBookshelfScreen(navController)
             }
         )
     }
 }
 
-private fun NavGraphBuilder.onBooksScreen(
+private fun NavGraphBuilder.onLibraryScreen(
     navController: NavController
 ) {
     composable(
-        route = NavDestination.Books.route
+        route = NavDestination.Library.route
     ) {
         FirstScreen {
-            navController.navigate(NavDestination.Details.route)
+            navController.navigate(NavDestination.BookDetails.route)
         }
     }
 }
 
-private fun NavGraphBuilder.onDetailsScreen(
+private fun NavGraphBuilder.onBookDetailsScreen(
     navController: NavController
 ) {
     composable(
-        route = NavDestination.Details.route
+        route = NavDestination.BookDetails.route
     ) {
         SecondScreen()
+    }
+}
+
+private fun NavGraphBuilder.onAuthorDetailsScreen(
+    navController: NavController
+) {
+    composable(
+        route = NavDestination.AuthorDetails.route
+    ) {
+        // TODO("Add author details composable screen")
+    }
+}
+
+private fun NavGraphBuilder.onBookshelfScreen(
+    navController: NavController
+) {
+    composable(
+        route = NavDestination.Bookshelf.route
+    ) {
+        // TODO("Add bookshelf composable screen")
     }
 }

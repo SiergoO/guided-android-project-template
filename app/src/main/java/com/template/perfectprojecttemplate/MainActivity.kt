@@ -9,7 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import com.template.perfectprojecttemplate.navigation.AppNavigation
+import com.template.perfectprojecttemplate.navigation.Navigation
 import com.template.perfectprojecttemplate.theme.ApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
                     contentColor = MaterialTheme.colorScheme.background
                 ) {
                     showSplashScreen = false
-                    AppNavigation()
+                    Navigation()
                 }
             }
         }
