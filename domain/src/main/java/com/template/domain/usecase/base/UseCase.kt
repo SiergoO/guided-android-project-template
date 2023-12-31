@@ -1,5 +1,7 @@
 package com.template.domain.usecase.base
 
+import java.lang.Exception
+
 abstract class UseCase<in P, R> {
 
     /** Executes the use case synchronously and returns a [R].
@@ -12,8 +14,8 @@ abstract class UseCase<in P, R> {
         execute(parameters).let { result ->
             Result.success(result)
         }
-    } catch (t: Throwable) {
-        Result.failure(t)
+    } catch (e: Exception) {
+        Result.failure(e)
     }
 
     protected abstract fun execute(parameters: P): R
