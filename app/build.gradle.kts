@@ -67,11 +67,11 @@ android {
 
 dependencies {
 
-    implementation(project(Module.COMMON))
-    implementation(project(Module.DATA))
-    implementation(project(Module.DOMAIN))
-    implementation(project(Module.Presentation.FIRST))
-    implementation(project(Module.Presentation.SECOND))
+    implementation(projects.core.common)
+    implementation(projects.core.data)
+    implementation(projects.core.domain)
+    implementation(projects.feature.first)
+    implementation(projects.feature.second)
 
     implementation(libs.bundles.di)
     implementation(libs.bundles.logging)

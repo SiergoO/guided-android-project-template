@@ -1,8 +1,8 @@
 package com.cleanlibrary.app
 
 import android.app.Application
-import com.cleanlibrary.data.di.dataModules
-import com.cleanlibrary.domain.di.domainModules
+import com.cleanlibrary.core.data.di.dataModules
+import com.cleanlibrary.core.domain.di.domainModules
 import com.cleanlibrary.first.di.firstModule
 import com.cleanlibrary.second.di.secondModule
 import org.koin.android.BuildConfig

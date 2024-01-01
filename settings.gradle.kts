@@ -15,9 +15,11 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "CleanLibrary"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
-include(":common")
-include(":data")
-include(":domain")
-include(":presentation:first")
-include(":presentation:second")
+include(":core:common")
+include(":core:data")
+include(":core:domain")
+include(":feature:first")
+include(":feature:second")
