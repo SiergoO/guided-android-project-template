@@ -14,7 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "PerfectProjectTemplate"
+rootProject.name = "CleanLibrary"
 include(":app")
 include(":common")
 include(":data")
