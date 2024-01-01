@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".data"
+    namespace = AndroidConfig.Project.NAMESPACE + ".core.data"
     compileSdk = AndroidConfig.SDK.COMPILE_VERSION
 
     defaultConfig {

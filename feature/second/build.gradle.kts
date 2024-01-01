@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".second"
+    namespace = AndroidConfig.Project.NAMESPACE + ".feature.second"
     compileSdk = AndroidConfig.SDK.COMPILE_VERSION
 
     defaultConfig {

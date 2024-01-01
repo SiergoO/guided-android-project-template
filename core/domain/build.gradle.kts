@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".domain"
+    namespace = AndroidConfig.Project.NAMESPACE + ".core.domain"
     compileSdk = AndroidConfig.SDK.COMPILE_VERSION
 
     compileOptions {

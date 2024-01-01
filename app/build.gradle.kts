@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE
+    namespace = AndroidConfig.Project.NAMESPACE + ".app"
     compileSdk = AndroidConfig.SDK.COMPILE_VERSION
 
     defaultConfig {
@@ -14,8 +14,6 @@ android {
 
         versionCode = AndroidConfig.App.VERSION_CODE
         versionName = AndroidConfig.App.VERSION_NAME
-
-        testInstrumentationRunner = AndroidConfig.Test.TEST_INSTRUMENTATION_RUNNER
     }
 
     buildTypes {
