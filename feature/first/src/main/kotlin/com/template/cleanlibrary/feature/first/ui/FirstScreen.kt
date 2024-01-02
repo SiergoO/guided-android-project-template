@@ -22,28 +22,28 @@ import org.orbitmvi.orbit.compose.collectSideEffect
 
 @Composable
 fun FirstScreen(
-    navigateToSecondScreen: () -> Unit
+    onNavigateToBookDetailsScreen: (bookId: String) -> Unit
 ) {
     val textToImageViewModel = getViewModel<FirstViewModel>()
     val state = textToImageViewModel.collectAsState()
 
     textToImageViewModel.collectSideEffect { sideEffect ->
         when (sideEffect) {
-            FirstViewModel.SideEffect.NavigateToSecondScreen -> navigateToSecondScreen.invoke()
+            FirstViewModel.SideEffect.NavigateToSecondScreen -> onNavigateToBookDetailsScreen.invoke("")
             is FirstViewModel.SideEffect.ShowError -> {}
         }
     }
 
     FirstScreen(
         state = state,
-        showSecondScreenAction = navigateToSecondScreen
+        showBookDetailsScreenAction = onNavigateToBookDetailsScreen
     )
 }
 
 @Composable
 private fun FirstScreen(
     state: State<FirstViewModel.State>,
-    showSecondScreenAction: () -> Unit
+    showBookDetailsScreenAction: (bookId: String) -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -61,7 +61,7 @@ private fun FirstScreen(
                 .height(48.dp)
                 .padding(horizontal = 16.dp),
             shape = MaterialTheme.shapes.medium,
-            onClick = showSecondScreenAction
+            onClick = { showBookDetailsScreenAction("") }
         ) {
             Text(
                 text = "Go to second screen",
