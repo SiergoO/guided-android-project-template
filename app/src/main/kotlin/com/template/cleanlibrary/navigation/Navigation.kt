@@ -16,7 +16,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.template.cleanlibrary.feature.first.ui.FirstScreen
+import com.template.cleanlibrary.feature.first.navigation.onLibraryScreen
 import com.template.cleanlibrary.feature.second.navigation.navigateToBookDetailsScreen
 import com.template.cleanlibrary.feature.second.navigation.onBookDetailsScreen
 import timber.log.Timber
@@ -52,15 +52,6 @@ fun Navigation() {
     }
 }
 
-private fun NavGraphBuilder.onLibraryScreen(
-    onNavigateToBookDetailsScreen: (bookId: String) -> Unit
-) {
-    composable(
-        route = NavDestination.Library.route
-    ) {
-        FirstScreen(onNavigateToBookDetailsScreen = onNavigateToBookDetailsScreen)
-    }
-}
 
 private fun NavGraphBuilder.onAuthorDetailsScreen(
     navController: NavController

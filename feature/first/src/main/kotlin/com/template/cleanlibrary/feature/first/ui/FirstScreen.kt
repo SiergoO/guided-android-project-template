@@ -20,6 +20,7 @@ import org.koin.androidx.compose.getViewModel
 import org.orbitmvi.orbit.compose.collectAsState
 import org.orbitmvi.orbit.compose.collectSideEffect
 
+// TODO("Make internal and rename to ...Route")
 @Composable
 fun FirstScreen(
     onNavigateToBookDetailsScreen: (bookId: String) -> Unit
