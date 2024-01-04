@@ -70,6 +70,7 @@ dependencies {
     implementation(projects.core.domain)
     implementation(projects.feature.library)
     implementation(projects.feature.bookdetails)
+    implementation(projects.feature.authordetails)
 
     implementation(libs.bundles.di)
     implementation(libs.bundles.logging)
