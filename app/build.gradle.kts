@@ -68,7 +68,7 @@ dependencies {
     implementation(projects.core.common)
     implementation(projects.core.data)
     implementation(projects.core.domain)
-    implementation(projects.feature.first)
+    implementation(projects.feature.library)
     implementation(projects.feature.second)
 
     implementation(libs.bundles.di)

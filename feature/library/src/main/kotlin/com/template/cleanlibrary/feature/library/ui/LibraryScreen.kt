@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.feature.first.ui
+package com.template.cleanlibrary.feature.library.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,35 +15,34 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.template.cleanlibrary.feature.first.viewmodel.FirstViewModel
+import com.template.cleanlibrary.feature.library.viewmodel.LibraryViewModel
 import org.koin.androidx.compose.getViewModel
 import org.orbitmvi.orbit.compose.collectAsState
 import org.orbitmvi.orbit.compose.collectSideEffect
 
-// TODO("Make internal and rename to ...Route")
 @Composable
-fun FirstScreen(
+internal fun LibraryRoute(
     onNavigateToBookDetailsScreen: (bookId: String) -> Unit
 ) {
-    val textToImageViewModel = getViewModel<FirstViewModel>()
+    val textToImageViewModel = getViewModel<LibraryViewModel>()
     val state = textToImageViewModel.collectAsState()
 
     textToImageViewModel.collectSideEffect { sideEffect ->
         when (sideEffect) {
-            FirstViewModel.SideEffect.NavigateToSecondScreen -> onNavigateToBookDetailsScreen.invoke("")
-            is FirstViewModel.SideEffect.ShowError -> {}
+            LibraryViewModel.SideEffect.NavigateToBookDetailsScreen -> onNavigateToBookDetailsScreen.invoke("")
+            is LibraryViewModel.SideEffect.ShowError -> {}
         }
     }
 
-    FirstScreen(
+    LibraryScreen(
         state = state,
         showBookDetailsScreenAction = onNavigateToBookDetailsScreen
     )
 }
 
 @Composable
-private fun FirstScreen(
-    state: State<FirstViewModel.State>,
+internal fun LibraryScreen(
+    state: State<LibraryViewModel.State>,
     showBookDetailsScreenAction: (bookId: String) -> Unit
 ) {
     Column(

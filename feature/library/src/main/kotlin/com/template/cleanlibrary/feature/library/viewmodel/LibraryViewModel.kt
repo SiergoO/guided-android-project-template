@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.feature.first.viewmodel
+package com.template.cleanlibrary.feature.library.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.template.cleanlibrary.core.common.base.BaseViewModel
@@ -8,9 +8,9 @@ import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.syntax.simple.reduce
 
-class FirstViewModel(
-    getFirstTitleUse: GetFirstTitleUseCase
-) : BaseViewModel<FirstViewModel.State, FirstViewModel.SideEffect>(State()) {
+class LibraryViewModel(
+    getFirstTitleUse: GetFirstTitleUseCase // TODO("Exchange with initial books loading usecase")
+) : BaseViewModel<LibraryViewModel.State, LibraryViewModel.SideEffect>(State()) {
 
     init {
         viewModelScope.launch {
@@ -24,21 +24,21 @@ class FirstViewModel(
 
     fun sendAction(action: Action) {
         when (action) {
-            is Action.ShowSecondScreenClicked -> {
+            is Action.BookClicked -> {
                 intent {
-                    postSideEffect(SideEffect.NavigateToSecondScreen)
+                    postSideEffect(SideEffect.NavigateToBookDetailsScreen)
                 }
             }
         }
     }
 
     sealed class SideEffect {
-        object NavigateToSecondScreen : SideEffect()
+        object NavigateToBookDetailsScreen : SideEffect()
         data class ShowError(val message: String?) : SideEffect()
     }
 
     sealed class Action {
-        object ShowSecondScreenClicked : Action()
+        object BookClicked : Action()
     }
 
     data class State(

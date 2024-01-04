@@ -6,7 +6,7 @@ import kotlinx.coroutines.delay
 class MainRepositoryImpl: MainRepository {
     override suspend fun getFirstTitle(): String {
         delay(2000)
-        return "First"
+        return "Library"
     }
 
     override suspend fun getSecondTitle(): String {
