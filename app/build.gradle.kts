@@ -71,6 +71,7 @@ dependencies {
     implementation(projects.feature.library)
     implementation(projects.feature.bookdetails)
     implementation(projects.feature.authordetails)
+    implementation(projects.feature.bookshelf)
 
     implementation(libs.bundles.di)
     implementation(libs.bundles.logging)
