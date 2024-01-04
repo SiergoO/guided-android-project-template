@@ -68,6 +68,7 @@ dependencies {
     implementation(projects.core.common)
     implementation(projects.core.data)
     implementation(projects.core.domain)
+    implementation(projects.core.ui)
     implementation(projects.feature.library)
     implementation(projects.feature.bookdetails)
     implementation(projects.feature.authordetails)
