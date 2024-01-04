@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.feature.second.viewmodel
+package com.template.cleanlibrary.feature.bookdetails.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.template.cleanlibrary.core.common.base.BaseViewModel
@@ -7,9 +7,9 @@ import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.reduce
 
-class SecondViewModel(
-    getSecondTitleUseCase: GetSecondTitleUseCase
-) : BaseViewModel<SecondViewModel.State, SecondViewModel.SideEffect>(State()) {
+class BookDetailsViewModel(
+    getSecondTitleUseCase: GetSecondTitleUseCase // TODO ("Exchange with book details usecase")
+) : BaseViewModel<BookDetailsViewModel.State, BookDetailsViewModel.SideEffect>(State()) {
 
     init {
         viewModelScope.launch {

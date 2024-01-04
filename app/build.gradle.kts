@@ -69,7 +69,7 @@ dependencies {
     implementation(projects.core.data)
     implementation(projects.core.domain)
     implementation(projects.feature.library)
-    implementation(projects.feature.second)
+    implementation(projects.feature.bookdetails)
 
     implementation(libs.bundles.di)
     implementation(libs.bundles.logging)

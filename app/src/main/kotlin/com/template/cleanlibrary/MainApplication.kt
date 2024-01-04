@@ -3,8 +3,8 @@ package com.template.cleanlibrary
 import android.app.Application
 import com.template.cleanlibrary.core.data.di.dataModules
 import com.template.cleanlibrary.core.domain.di.domainModules
+import com.template.cleanlibrary.feature.bookdetails.di.bookDetailsModule
 import com.template.cleanlibrary.feature.library.di.libraryModule
-import com.template.cleanlibrary.feature.second.di.secondModule
 import org.koin.android.BuildConfig
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -21,7 +21,7 @@ class MainApplication : Application() {
     private fun initKoin() {
         startKoin {
             androidContext(this@MainApplication)
-            modules(libraryModule, secondModule)
+            modules(libraryModule, bookDetailsModule)
             modules(domainModules)
             modules(dataModules)
         }

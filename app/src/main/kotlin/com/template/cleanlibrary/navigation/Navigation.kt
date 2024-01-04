@@ -17,8 +17,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.template.cleanlibrary.feature.library.navigation.onLibraryScreen
-import com.template.cleanlibrary.feature.second.navigation.navigateToBookDetailsScreen
-import com.template.cleanlibrary.feature.second.navigation.onBookDetailsScreen
+import com.template.cleanlibrary.feature.bookdetails.navigation.navigateToBookDetailsScreen
+import com.template.cleanlibrary.feature.bookdetails.navigation.onBookDetailsScreen
 import timber.log.Timber
 
 @Composable

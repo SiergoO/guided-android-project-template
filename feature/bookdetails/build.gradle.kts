@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".feature.second"
+    namespace = AndroidConfig.Project.NAMESPACE + ".feature.bookdetails"
     compileSdk = AndroidConfig.SDK.COMPILE_VERSION
 
     defaultConfig {

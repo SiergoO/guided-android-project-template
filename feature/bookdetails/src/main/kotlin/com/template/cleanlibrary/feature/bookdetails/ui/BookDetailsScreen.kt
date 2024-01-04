@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.feature.second.ui
+package com.template.cleanlibrary.feature.bookdetails.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,30 +10,30 @@ import androidx.compose.runtime.State
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import com.template.cleanlibrary.feature.second.viewmodel.SecondViewModel
+import com.template.cleanlibrary.feature.bookdetails.viewmodel.BookDetailsViewModel
 import org.koin.androidx.compose.getViewModel
 import org.orbitmvi.orbit.compose.collectAsState
 import org.orbitmvi.orbit.compose.collectSideEffect
 
 @Composable
-fun SecondScreen() {
-    val secondViewModel = getViewModel<SecondViewModel>()
-    val state = secondViewModel.collectAsState()
+fun BookDetailsRoute() {
+    val viewModel = getViewModel<BookDetailsViewModel>()
+    val state = viewModel.collectAsState()
 
-    secondViewModel.collectSideEffect { sideEffect ->
+    viewModel.collectSideEffect { sideEffect ->
         when (sideEffect) {
-            is SecondViewModel.SideEffect.ShowError -> {}
+            is BookDetailsViewModel.SideEffect.ShowError -> {}
         }
     }
 
-    SecondScreen(
+    BookDetailsScreen(
         state = state
     )
 }
 
 @Composable
-private fun SecondScreen(
-    state: State<SecondViewModel.State>,
+private fun BookDetailsScreen(
+    state: State<BookDetailsViewModel.State>,
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),

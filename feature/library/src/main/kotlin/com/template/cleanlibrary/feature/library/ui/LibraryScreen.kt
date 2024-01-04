@@ -24,10 +24,10 @@ import org.orbitmvi.orbit.compose.collectSideEffect
 internal fun LibraryRoute(
     onNavigateToBookDetailsScreen: (bookId: String) -> Unit
 ) {
-    val textToImageViewModel = getViewModel<LibraryViewModel>()
-    val state = textToImageViewModel.collectAsState()
+    val viewModel = getViewModel<LibraryViewModel>()
+    val state = viewModel.collectAsState()
 
-    textToImageViewModel.collectSideEffect { sideEffect ->
+    viewModel.collectSideEffect { sideEffect ->
         when (sideEffect) {
             LibraryViewModel.SideEffect.NavigateToBookDetailsScreen -> onNavigateToBookDetailsScreen.invoke("")
             is LibraryViewModel.SideEffect.ShowError -> {}
