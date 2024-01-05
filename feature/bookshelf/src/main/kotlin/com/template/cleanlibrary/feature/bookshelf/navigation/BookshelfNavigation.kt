@@ -6,7 +6,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.template.cleanlibrary.feature.bookshelf.ui.BookshelfRoute
 
-internal const val BOOKSHELF_ROUTE = "route_bookshelf"
+const val BOOKSHELF_ROUTE = "route_bookshelf"
 
 fun NavController.navigateToBookshelfScreen (navOptions: NavOptions) = navigate(BOOKSHELF_ROUTE, navOptions)
 

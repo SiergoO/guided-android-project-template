@@ -6,7 +6,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.template.cleanlibrary.feature.library.ui.LibraryRoute
 
-internal const val LIBRARY_ROUTE = "route_library"
+const val LIBRARY_ROUTE = "route_library"
 
 fun NavController.navigateToLibraryScreen (navOptions: NavOptions) = navigate(LIBRARY_ROUTE, navOptions)
 
