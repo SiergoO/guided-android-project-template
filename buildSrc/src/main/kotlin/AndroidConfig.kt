@@ -2,7 +2,7 @@ object AndroidConfig {
 
     object Project {
         // TODO("Change namespace")
-        const val NAMESPACE = "com.template"
+        const val NAMESPACE = "com.template.cleanlibrary"
     }
 
     // TODO("Change application object name")
