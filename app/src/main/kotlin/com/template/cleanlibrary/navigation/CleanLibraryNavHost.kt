@@ -5,12 +5,14 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.template.cleanlibrary.feature.authordetails.navigation.navigateToAuthorDetailsScreen
 import com.template.cleanlibrary.feature.authordetails.navigation.onAuthorDetailsScreen
 import com.template.cleanlibrary.feature.bookdetails.navigation.navigateToBookDetailsScreen
 import com.template.cleanlibrary.feature.bookdetails.navigation.onBookDetailsScreen
 import com.template.cleanlibrary.feature.bookshelf.navigation.onBookshelfScreen
 import com.template.cleanlibrary.feature.library.navigation.LIBRARY_GRAPH_ROUTE
-import com.template.cleanlibrary.feature.library.navigation.onLibraryGraph
+import com.template.cleanlibrary.feature.library.navigation.LIBRARY_ROUTE
+import com.template.cleanlibrary.feature.library.navigation.onLibraryScreen
 import timber.log.Timber
 
 @Composable
@@ -23,11 +25,14 @@ fun CleanLibraryNavHost(
         navController = navController,
         startDestination = LIBRARY_GRAPH_ROUTE,
         builder = {
-            onLibraryGraph(navController::navigateToBookDetailsScreen) {
-                onBookDetailsScreen()
-                onAuthorDetailsScreen()
-            }
-            onBookshelfScreen(navController::navigateToBookDetailsScreen)
+            onLibraryScreen(
+                onBookClick = navController::navigateToBookDetailsScreen,
+                nestedGraphs = {
+                    onBookDetailsScreen(navController::navigateToAuthorDetailsScreen)
+                    onAuthorDetailsScreen()
+                }
+            )
+            onBookshelfScreen(navController::navigateToAuthorDetailsScreen)
         }
     )
 

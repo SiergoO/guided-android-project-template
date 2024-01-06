@@ -1,38 +1,49 @@
 package com.template.cleanlibrary.feature.bookdetails.viewmodel
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.template.cleanlibrary.core.common.base.BaseViewModel
-import com.template.cleanlibrary.core.domain.usecase.GetSecondTitleUseCase
+import com.template.cleanlibrary.feature.bookdetails.navigation.BookArgs
 import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.syntax.simple.intent
+import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.syntax.simple.reduce
 
 class BookDetailsViewModel(
-    getSecondTitleUseCase: GetSecondTitleUseCase // TODO ("Exchange with book details usecase")
+    savedStateHandle: SavedStateHandle
 ) : BaseViewModel<BookDetailsViewModel.State, BookDetailsViewModel.SideEffect>(State()) {
+
+    private val bookArgs: BookArgs = BookArgs(savedStateHandle)
+    private val bookId: String = bookArgs.bookId
 
     init {
         viewModelScope.launch {
-            getSecondTitleUseCase.invoke(Unit).onSuccess {
-                intent {
-                    reduce { state.copy(title = it) }
-                }
+            intent {
+                reduce { state.copy(bookId = bookId) }
             }
         }
     }
 
     fun sendAction(action: Action) {
+        when (action) {
+            is Action.AuthorDetailsClicked -> {
+                intent {
+                    postSideEffect(SideEffect.NavigateToAuthorDetailsScreen(action.authorId))
+                }
+            }
+        }
     }
 
     sealed class SideEffect {
+        data class NavigateToAuthorDetailsScreen(val authorId: String) : SideEffect()
         data class ShowError(val message: String?) : SideEffect()
     }
 
-    sealed class Action {
-
+    sealed interface Action {
+        data class AuthorDetailsClicked(val authorId: String) : Action
     }
 
     data class State(
-        val title: String = "",
+        val bookId: String = "",
     )
 }
