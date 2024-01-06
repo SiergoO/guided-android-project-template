@@ -3,6 +3,7 @@ package com.template.cleanlibrary
 import android.app.Application
 import com.template.cleanlibrary.core.data.di.dataModules
 import com.template.cleanlibrary.core.domain.di.domainModules
+import com.template.cleanlibrary.di.cleanLibraryModule
 import com.template.cleanlibrary.feature.authordetails.di.authorDetailsModule
 import com.template.cleanlibrary.feature.bookdetails.di.bookDetailsModule
 import com.template.cleanlibrary.feature.bookshelf.di.bookshelfModule
@@ -24,6 +25,7 @@ class CleanLibraryApplication : Application() {
         startKoin {
             androidContext(this@CleanLibraryApplication)
             modules(
+                cleanLibraryModule,
                 libraryModule,
                 bookDetailsModule,
                 authorDetailsModule,

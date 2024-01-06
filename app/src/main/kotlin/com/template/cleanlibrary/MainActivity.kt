@@ -3,27 +3,52 @@ package com.template.cleanlibrary
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.template.cleanlibrary.theme.ApplicationTheme
 import com.template.cleanlibrary.ui.CleanLibraryLauncher
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
+import com.template.cleanlibrary.MainActivityUiState.Loading
+import com.template.cleanlibrary.MainActivityUiState.Success
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class MainActivity : ComponentActivity() {
 
-    private var showSplashScreen: Boolean = true
+    private val viewModel by lazy { getViewModel<MainActivityViewModel>() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
-        installSplashScreen().setKeepOnScreenCondition {
-            showSplashScreen
+        var uiState: MainActivityUiState by mutableStateOf(Loading)
+
+        lifecycleScope.launch {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState
+                    .onEach { uiState = it }
+                    .collect()
+            }
+        }
+
+        splashScreen.setKeepOnScreenCondition {
+            when (uiState) {
+                Loading -> true
+                Success -> false
+            }
         }
 
         setContent {
             ApplicationTheme {
-                showSplashScreen = false
                 CleanLibraryLauncher()
             }
         }
