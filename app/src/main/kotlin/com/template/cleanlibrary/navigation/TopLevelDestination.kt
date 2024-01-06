@@ -5,7 +5,7 @@ import com.template.cleanlibrary.core.ui.icon.CleanLibraryIcons
 import com.template.cleanlibrary.feature.library.R as libraryR
 import com.template.cleanlibrary.feature.bookshelf.R as bookshelfR
 
-enum class BottomNavDestination(
+enum class TopLevelDestination(
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
     val iconTextId: Int,

@@ -15,11 +15,11 @@ import androidx.navigation.NavDestination
 import androidx.navigation.compose.rememberNavController
 import com.template.cleanlibrary.core.ui.components.BottomNavigationBar
 import com.template.cleanlibrary.core.ui.components.BottomNavigationBarItem
-import com.template.cleanlibrary.navigation.BottomNavDestination
+import com.template.cleanlibrary.navigation.TopLevelDestination
 import com.template.cleanlibrary.navigation.CleanLibraryNavHost
-import com.template.cleanlibrary.navigation.getCurrentBottomNavDestination
-import com.template.cleanlibrary.navigation.isBottomNavDestinationInHierarchy
-import com.template.cleanlibrary.navigation.navigateToBottomNavDestination
+import com.template.cleanlibrary.navigation.getCurrentTopLevelDestination
+import com.template.cleanlibrary.navigation.isTopLevelDestinationInHierarchy
+import com.template.cleanlibrary.navigation.navigateToTopLevelDestination
 
 @Composable
 fun CleanLibraryLauncher() {
@@ -41,9 +41,9 @@ fun CleanLibraryLauncher() {
             )
 
             CleanLibraryBottomBar(
-                bottomNavDestinations = BottomNavDestination.entries,
-                onNavigateToDestination = { destination -> navController.navigateToBottomNavDestination(destination) },
-                currentDestination = navController.getCurrentBottomNavDestination()
+                topLevelDestinations = TopLevelDestination.entries,
+                onNavigateToDestination = { destination -> navController.navigateToTopLevelDestination(destination) },
+                currentDestination = navController.getCurrentTopLevelDestination()
             )
         }
     }
@@ -52,18 +52,18 @@ fun CleanLibraryLauncher() {
 @Composable
 private fun CleanLibraryBottomBar(
     modifier: Modifier = Modifier,
-    bottomNavDestinations: List<BottomNavDestination>,
-    onNavigateToDestination: (BottomNavDestination) -> Unit,
+    topLevelDestinations: List<TopLevelDestination>,
+    onNavigateToDestination: (TopLevelDestination) -> Unit,
     currentDestination: NavDestination?,
 ) {
     BottomNavigationBar(
         modifier = modifier
     ) {
 
-        bottomNavDestinations.forEach { destination ->
+        topLevelDestinations.forEach { destination ->
             BottomNavigationBarItem(
                 modifier = Modifier,
-                selected = currentDestination.isBottomNavDestinationInHierarchy(destination),
+                selected = currentDestination.isTopLevelDestinationInHierarchy(destination),
                 onClick = {
                     onNavigateToDestination(destination)
                 },

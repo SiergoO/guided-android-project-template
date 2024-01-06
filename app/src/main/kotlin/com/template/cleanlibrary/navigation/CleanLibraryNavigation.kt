@@ -10,12 +10,12 @@ import androidx.navigation.navOptions
 import com.template.cleanlibrary.feature.bookshelf.navigation.navigateToBookshelfScreen
 import com.template.cleanlibrary.feature.library.navigation.navigateToLibraryScreen
 
-fun NavController.navigateToBottomNavDestination(bottomNavDestination: BottomNavDestination) {
+fun NavController.navigateToTopLevelDestination(topLevelDestination: TopLevelDestination) {
         val topLevelNavOptions = navOptions {
             // Pop up to the start destination of the graph to
             // avoid building up a large stack of destinations
             // on the back stack as users select items
-            popUpTo(this@navigateToBottomNavDestination.graph.findStartDestination().id) {
+            popUpTo(this@navigateToTopLevelDestination.graph.findStartDestination().id) {
                 saveState = true
             }
             // Avoid multiple copies of the same destination when
@@ -25,16 +25,16 @@ fun NavController.navigateToBottomNavDestination(bottomNavDestination: BottomNav
             restoreState = true
         }
 
-        when (bottomNavDestination) {
-            BottomNavDestination.LIBRARY -> navigateToLibraryScreen(topLevelNavOptions)
-            BottomNavDestination.BOOKSHELF -> navigateToBookshelfScreen(topLevelNavOptions)
+        when (topLevelDestination) {
+            TopLevelDestination.LIBRARY -> navigateToLibraryScreen(topLevelNavOptions)
+            TopLevelDestination.BOOKSHELF -> navigateToBookshelfScreen(topLevelNavOptions)
         }
 }
 
-internal fun NavDestination?.isBottomNavDestinationInHierarchy(destination: BottomNavDestination) =
+internal fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
     this?.hierarchy?.any {
         it.route?.contains(destination.name, true) ?: false
     } ?: false
 
 @Composable
-internal fun NavController.getCurrentBottomNavDestination() = this.currentBackStackEntryAsState().value?.destination
+internal fun NavController.getCurrentTopLevelDestination() = this.currentBackStackEntryAsState().value?.destination
