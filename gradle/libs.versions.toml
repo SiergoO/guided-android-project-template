@@ -22,7 +22,7 @@ compose_accompaniest = "0.30.1"
 compose_navigation = "2.6.0"
 
 # Orbit MVI
-orbit = "6.0.0"
+orbit = "6.1.0"
 
 # Coroutines
 coroutines = "1.7.1"
