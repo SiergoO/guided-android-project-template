@@ -1,9 +1,5 @@
 package com.template.cleanlibrary.navigation
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
@@ -18,30 +14,25 @@ import com.template.cleanlibrary.feature.library.navigation.onLibraryScreen
 import timber.log.Timber
 
 @Composable
-fun CleanLibraryNavHost(navController: NavHostController) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .statusBarsPadding()
-            .navigationBarsPadding()
-    ) {
-
-        LaunchedEffect(Unit) {
-            navController.currentBackStack.collect {
-                Timber.d(navController.currentBackStack.value.map { it.destination.route }.joinToString())
-            }
+fun CleanLibraryNavHost(
+    modifier: Modifier = Modifier,
+    navController: NavHostController
+) {
+    NavHost(
+        modifier = modifier,
+        navController = navController,
+        startDestination = LIBRARY_ROUTE,
+        builder = {
+            onLibraryScreen(navController::navigateToBookDetailsScreen)
+            onBookDetailsScreen()
+            onAuthorDetailsScreen()
+            onBookshelfScreen(navController::navigateToBookDetailsScreen)
         }
+    )
 
-        NavHost(
-            modifier = Modifier.weight(1f),
-            navController = navController,
-            startDestination = LIBRARY_ROUTE,
-            builder = {
-                onLibraryScreen(navController::navigateToBookDetailsScreen)
-                onBookDetailsScreen()
-                onAuthorDetailsScreen()
-                onBookshelfScreen(navController::navigateToBookDetailsScreen)
-            }
-        )
+    LaunchedEffect(Unit) {
+        navController.currentBackStack.collect {
+            Timber.d(navController.currentBackStack.value.map { it.destination.route }.joinToString())
+        }
     }
 }

@@ -12,7 +12,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
 
-class MainApplication : Application() {
+class CleanLibraryApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -22,7 +22,7 @@ class MainApplication : Application() {
 
     private fun initKoin() {
         startKoin {
-            androidContext(this@MainApplication)
+            androidContext(this@CleanLibraryApplication)
             modules(
                 libraryModule,
                 bookDetailsModule,

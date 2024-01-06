@@ -3,15 +3,10 @@ package com.template.cleanlibrary
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import androidx.navigation.compose.rememberNavController
-import com.template.cleanlibrary.navigation.CleanLibraryNavHost
 import com.template.cleanlibrary.theme.ApplicationTheme
+import com.template.cleanlibrary.ui.CleanLibraryLauncher
 
 class MainActivity : ComponentActivity() {
 
@@ -28,13 +23,8 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ApplicationTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    contentColor = MaterialTheme.colorScheme.background
-                ) {
-                    showSplashScreen = false
-                    CleanLibraryNavHost(navController = rememberNavController())
-                }
+                showSplashScreen = false
+                CleanLibraryLauncher()
             }
         }
     }
