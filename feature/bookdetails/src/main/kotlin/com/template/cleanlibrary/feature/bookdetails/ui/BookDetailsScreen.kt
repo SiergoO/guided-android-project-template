@@ -24,7 +24,7 @@ import org.orbitmvi.orbit.compose.collectSideEffect
 
 @Composable
 internal fun BookDetailsRoute(
-    onNavigateToAuthorDetailsScreen: (authorId: String) -> Unit
+    onNavigateToAuthorDetailsScreen: (authorId: String) -> Unit,
 ) {
     val viewModel = getViewModel<BookDetailsViewModel>()
     val state = viewModel.collectAsState()
@@ -61,7 +61,7 @@ private fun BookDetailsScreen(
                 .height(48.dp)
                 .padding(horizontal = 16.dp),
             shape = MaterialTheme.shapes.medium,
-            onClick = { onAuthorDetailsClick("1234") }
+            onClick = { onAuthorDetailsClick("4321") }
         ) {
             Text(
                 text = state.value.bookId,

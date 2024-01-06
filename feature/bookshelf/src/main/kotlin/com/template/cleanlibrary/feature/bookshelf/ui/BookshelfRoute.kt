@@ -22,7 +22,7 @@ import org.orbitmvi.orbit.compose.collectSideEffect
 
 @Composable
 internal fun BookshelfRoute(
-    onNavigateToBookDetailsScreen: (bookId: String) -> Unit
+    onNavigateToBookDetailsScreen: (bookId: String) -> Unit,
 ) {
     val viewModel = getViewModel<BookshelfViewModel>()
     val state = viewModel.collectAsState()

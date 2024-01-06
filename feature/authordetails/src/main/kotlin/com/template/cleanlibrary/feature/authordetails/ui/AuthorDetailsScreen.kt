@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import com.template.cleanlibrary.feature.authordetails.viewmodel.AuthorDetailsViewModel
+import com.template.cleanlibrary.feature.authordetails.viewmodel.AuthorDetailsViewModel.SideEffect.ShowError
 import org.koin.androidx.compose.getViewModel
 import org.orbitmvi.orbit.compose.collectAsState
 import org.orbitmvi.orbit.compose.collectSideEffect
@@ -22,7 +23,7 @@ fun AuthorDetailsRoute() {
 
     viewModel.collectSideEffect { sideEffect ->
         when (sideEffect) {
-            is AuthorDetailsViewModel.SideEffect.ShowError -> {}
+            is ShowError -> {}
         }
     }
 
@@ -41,7 +42,7 @@ private fun AuthorDetailsScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = state.value.title,
+            text = state.value.authorId,
             color = MaterialTheme.colorScheme.onBackground,
             textAlign = TextAlign.Center
         )
