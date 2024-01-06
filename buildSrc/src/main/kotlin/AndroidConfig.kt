@@ -32,11 +32,11 @@ object AndroidConfig {
 
     object Kotlin {
         // TODO("Change Kotlin version to latest")
-        const val VERSION = "1.8.21"
+        const val VERSION = "1.9.21"
     }
 
     object Compose {
         // TODO("Change Compose compiler version to latest")
-        const val COMPILER_VERSION = "1.4.7"
+        const val COMPILER_VERSION = "1.5.7"
     }
 }

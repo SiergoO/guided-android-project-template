@@ -6,13 +6,13 @@ targetSdk = "33"
 compileSdk = "33"
 
 # Kotlin
-kotlin = "1.8.21"
+kotlin = "1.9.21"
 
 # Gradle
 gradle_plugin = "8.1.1"
 
 # Compose compiler
-compose_compiler = "1.4.7"
+compose_compiler = "1.5.7"
 
 # Compose
 compose_core = "1.4.3"

@@ -9,8 +9,8 @@ import com.template.cleanlibrary.feature.authordetails.navigation.onAuthorDetail
 import com.template.cleanlibrary.feature.bookdetails.navigation.navigateToBookDetailsScreen
 import com.template.cleanlibrary.feature.bookdetails.navigation.onBookDetailsScreen
 import com.template.cleanlibrary.feature.bookshelf.navigation.onBookshelfScreen
-import com.template.cleanlibrary.feature.library.navigation.LIBRARY_ROUTE
-import com.template.cleanlibrary.feature.library.navigation.onLibraryScreen
+import com.template.cleanlibrary.feature.library.navigation.LIBRARY_GRAPH_ROUTE
+import com.template.cleanlibrary.feature.library.navigation.onLibraryGraph
 import timber.log.Timber
 
 @Composable
@@ -21,11 +21,12 @@ fun CleanLibraryNavHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = LIBRARY_ROUTE,
+        startDestination = LIBRARY_GRAPH_ROUTE,
         builder = {
-            onLibraryScreen(navController::navigateToBookDetailsScreen)
-            onBookDetailsScreen()
-            onAuthorDetailsScreen()
+            onLibraryGraph(navController::navigateToBookDetailsScreen) {
+                onBookDetailsScreen()
+                onAuthorDetailsScreen()
+            }
             onBookshelfScreen(navController::navigateToBookDetailsScreen)
         }
     )
