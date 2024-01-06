@@ -13,7 +13,7 @@ const val LIBRARY_ROUTE = "route_library"
 fun NavController.navigateToLibraryScreen(navOptions: NavOptions) = navigate(LIBRARY_GRAPH_ROUTE, navOptions)
 
 fun NavGraphBuilder.onLibraryScreen(
-    onBookClick: (bookId: String) -> Unit,
+    onNavigateToBookDetailsScreen: (bookId: String) -> Unit,
     nestedGraphs: NavGraphBuilder.() -> Unit,
 ) {
     navigation(
@@ -21,7 +21,7 @@ fun NavGraphBuilder.onLibraryScreen(
         startDestination = LIBRARY_ROUTE,
     ) {
         composable(route = LIBRARY_ROUTE) {
-            LibraryRoute(onBookClick)
+            LibraryRoute(onNavigateToBookDetailsScreen = onNavigateToBookDetailsScreen)
         }
         nestedGraphs()
     }

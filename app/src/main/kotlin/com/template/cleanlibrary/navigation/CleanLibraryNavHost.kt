@@ -11,7 +11,6 @@ import com.template.cleanlibrary.feature.bookdetails.navigation.navigateToBookDe
 import com.template.cleanlibrary.feature.bookdetails.navigation.onBookDetailsScreen
 import com.template.cleanlibrary.feature.bookshelf.navigation.onBookshelfScreen
 import com.template.cleanlibrary.feature.library.navigation.LIBRARY_GRAPH_ROUTE
-import com.template.cleanlibrary.feature.library.navigation.LIBRARY_ROUTE
 import com.template.cleanlibrary.feature.library.navigation.onLibraryScreen
 import timber.log.Timber
 
@@ -26,13 +25,19 @@ fun CleanLibraryNavHost(
         startDestination = LIBRARY_GRAPH_ROUTE,
         builder = {
             onLibraryScreen(
-                onBookClick = navController::navigateToBookDetailsScreen,
+                onNavigateToBookDetailsScreen = navController::navigateToBookDetailsScreen,
                 nestedGraphs = {
                     onBookDetailsScreen(navController::navigateToAuthorDetailsScreen)
                     onAuthorDetailsScreen()
                 }
             )
-            onBookshelfScreen(navController::navigateToAuthorDetailsScreen)
+            onBookshelfScreen(
+                onNavigateToBookDetailsScreen = navController::navigateToBookDetailsScreen,
+                nestedGraphs = {
+                    onBookDetailsScreen(navController::navigateToAuthorDetailsScreen)
+                    onAuthorDetailsScreen()
+                }
+            )
         }
     )
 
