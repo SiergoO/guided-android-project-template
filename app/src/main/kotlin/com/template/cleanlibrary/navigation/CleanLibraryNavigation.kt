@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navOptions
 import com.template.cleanlibrary.feature.bookshelf.navigation.navigateToBookshelfScreen
@@ -15,7 +14,7 @@ fun NavController.navigateToTopLevelDestination(topLevelDestination: TopLevelDes
             // Pop up to the start destination of the graph to
             // avoid building up a large stack of destinations
             // on the back stack as users select items
-            popUpTo(this@navigateToTopLevelDestination.graph.findStartDestination().id) {
+            popUpTo(this@navigateToTopLevelDestination.graph.id) {
                 saveState = true
             }
             // Avoid multiple copies of the same destination when
@@ -31,7 +30,7 @@ fun NavController.navigateToTopLevelDestination(topLevelDestination: TopLevelDes
         }
 }
 
-internal fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
+fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
     this?.hierarchy?.any {
         it.route?.contains(destination.name, true) ?: false
     } ?: false

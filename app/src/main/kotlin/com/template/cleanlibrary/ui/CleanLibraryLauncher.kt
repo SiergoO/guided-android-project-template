@@ -23,6 +23,8 @@ import com.template.cleanlibrary.navigation.navigateToTopLevelDestination
 
 @Composable
 fun CleanLibraryLauncher() {
+    val navController = rememberNavController()
+
     Surface(
         modifier = Modifier.fillMaxSize(),
         contentColor = MaterialTheme.colorScheme.background
@@ -33,8 +35,6 @@ fun CleanLibraryLauncher() {
                 .statusBarsPadding()
                 .navigationBarsPadding()
         ) {
-            val navController = rememberNavController()
-
             CleanLibraryNavHost(
                 modifier = Modifier.weight(1f),
                 navController = navController

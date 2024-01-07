@@ -26,19 +26,19 @@ class BookshelfViewModel(
         when (action) {
             is Action.BookClicked -> {
                 intent {
-                    postSideEffect(SideEffect.NavigateToBookDetailsScreen)
+                    postSideEffect(SideEffect.NavigateToBookDetailsScreen(action.bookId))
                 }
             }
         }
     }
 
     sealed class SideEffect {
-        object NavigateToBookDetailsScreen : SideEffect()
+        data class NavigateToBookDetailsScreen(val bookId: String) : SideEffect()
         data class ShowError(val message: String?) : SideEffect()
     }
 
     sealed class Action {
-        object BookClicked : Action()
+        data class BookClicked(val bookId: String) : Action()
     }
 
     data class State(

@@ -16,6 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.template.cleanlibrary.feature.bookshelf.viewmodel.BookshelfViewModel
+import com.template.cleanlibrary.feature.bookshelf.viewmodel.BookshelfViewModel.SideEffect.NavigateToBookDetailsScreen
+import com.template.cleanlibrary.feature.bookshelf.viewmodel.BookshelfViewModel.SideEffect.ShowError
+import com.template.cleanlibrary.feature.bookshelf.viewmodel.BookshelfViewModel.Action.BookClicked
 import org.koin.androidx.compose.getViewModel
 import org.orbitmvi.orbit.compose.collectAsState
 import org.orbitmvi.orbit.compose.collectSideEffect
@@ -29,21 +32,23 @@ internal fun BookshelfRoute(
 
     viewModel.collectSideEffect { sideEffect ->
         when (sideEffect) {
-            BookshelfViewModel.SideEffect.NavigateToBookDetailsScreen -> onNavigateToBookDetailsScreen.invoke("")
-            is BookshelfViewModel.SideEffect.ShowError -> {}
+            is NavigateToBookDetailsScreen -> onNavigateToBookDetailsScreen(sideEffect.bookId)
+            is ShowError -> {}
         }
     }
 
     BookshelfScreen(
         state = state,
-        showBookDetailsScreenAction = onNavigateToBookDetailsScreen
+        onBookClick = { bookId: String ->
+            viewModel.sendAction(BookClicked(bookId))
+        }
     )
 }
 
 @Composable
 internal fun BookshelfScreen(
     state: State<BookshelfViewModel.State>,
-    showBookDetailsScreenAction: (bookId: String) -> Unit
+    onBookClick: (bookId: String) -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -61,10 +66,10 @@ internal fun BookshelfScreen(
                 .height(48.dp)
                 .padding(horizontal = 16.dp),
             shape = MaterialTheme.shapes.medium,
-            onClick = { showBookDetailsScreenAction("") }
+            onClick = { onBookClick("5678") }
         ) {
             Text(
-                text = "Go to second screen",
+                text = "Go to book details screen",
                 style = MaterialTheme.typography.labelSmall
             )
         }
