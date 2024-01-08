@@ -1,10 +1,6 @@
 package com.template.cleanlibrary.navigation
 
-import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
-import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navOptions
 import com.template.cleanlibrary.feature.bookshelf.navigation.navigateToBookshelfScreen
 import com.template.cleanlibrary.feature.library.navigation.navigateToLibraryScreen
@@ -30,10 +26,9 @@ fun NavController.navigateToTopLevelDestination(topLevelDestination: TopLevelDes
         }
 }
 
-fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
-    this?.hierarchy?.any {
-        it.route?.contains(destination.name, true) ?: false
-    } ?: false
-
-@Composable
-internal fun NavController.getCurrentTopLevelDestination() = this.currentBackStackEntryAsState().value?.destination
+internal fun NavController.getCurrentTopLevelDestination() =
+    TopLevelDestination.entries.find { dest ->
+        currentBackStack.value.any {
+            it.destination.route.toString().contains(dest.name.lowercase(), false)
+        }
+    } ?: TopLevelDestination.LIBRARY
