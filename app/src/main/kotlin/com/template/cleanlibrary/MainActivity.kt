@@ -12,7 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.template.cleanlibrary.theme.ApplicationTheme
-import com.template.cleanlibrary.ui.CleanLibraryLauncher
+import com.template.cleanlibrary.ui.CleanLibraryRoute
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -49,7 +49,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ApplicationTheme {
-                CleanLibraryLauncher()
+                CleanLibraryRoute()
             }
         }
     }

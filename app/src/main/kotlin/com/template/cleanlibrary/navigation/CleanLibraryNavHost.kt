@@ -3,13 +3,12 @@ package com.template.cleanlibrary.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import timber.log.Timber
 
 @Composable
-fun CleanLibraryNavHost(
+internal fun CleanLibraryNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController
 ) {
@@ -25,7 +24,6 @@ fun CleanLibraryNavHost(
     LaunchedEffect(Unit) {
         navController.currentBackStack.collect {
             Timber.d(navController.currentBackStack.value.map { it.destination.route }.joinToString())
-            Timber.d(navController.currentDestination?.hierarchy?.toList()?.map { it.route }.toString())
         }
     }
 }
