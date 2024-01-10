@@ -6,7 +6,7 @@ import com.template.cleanlibrary.core.data.di.dataModules
 import com.template.cleanlibrary.core.domain.di.domainModules
 import com.template.cleanlibrary.di.cleanLibraryModule
 import com.template.cleanlibrary.feature.authordetails.di.authorDetailsModule
-import com.template.cleanlibrary.feature.bookdetails.di.bookDetailsModule
+import com.template.cleanlibrary.feature.bookdetails.di.bookDetailsFeatureModule
 import com.template.cleanlibrary.feature.bookshelf.di.bookshelfModule
 import com.template.cleanlibrary.feature.library.di.libraryModule
 import org.koin.android.ext.koin.androidContext
@@ -27,7 +27,7 @@ class CleanLibraryApplication : Application() {
             modules(
                 cleanLibraryModule,
                 libraryModule,
-                bookDetailsModule,
+                bookDetailsFeatureModule,
                 authorDetailsModule,
                 bookshelfModule
             )
