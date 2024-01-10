@@ -1,8 +1,8 @@
 package com.template.cleanlibrary.core.domain.repository
 
-interface MainRepository {
+interface BookRepository {
 
-    suspend fun getFirstTitle(): String
+    suspend fun getBookDetailsById(bookId: Int): String
 
     suspend fun getSecondTitle(): String
 }

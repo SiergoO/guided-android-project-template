@@ -3,6 +3,7 @@ package com.template.cleanlibrary.feature.bookdetails.viewmodel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.template.cleanlibrary.core.common.base.BaseViewModel
+import com.template.cleanlibrary.feature.bookdetails.domain.usecase.GetBookDetailsByIdUseCase
 import com.template.cleanlibrary.feature.bookdetails.navigation.BookArgs
 import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.syntax.simple.intent
@@ -10,6 +11,7 @@ import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.syntax.simple.reduce
 
 class BookDetailsViewModel(
+    private val bookDetailsByIdUseCase: GetBookDetailsByIdUseCase,
     savedStateHandle: SavedStateHandle
 ) : BaseViewModel<BookDetailsViewModel.State, BookDetailsViewModel.SideEffect>(State()) {
 

@@ -1,10 +1,10 @@
 package com.template.cleanlibrary.core.data.repository
 
-import com.template.cleanlibrary.core.domain.repository.MainRepository
+import com.template.cleanlibrary.core.domain.repository.BookRepository
 import kotlinx.coroutines.delay
 
-class MainRepositoryImpl: MainRepository {
-    override suspend fun getFirstTitle(): String {
+class BookRepositoryImpl: BookRepository {
+    override suspend fun getBookDetailsById(): String {
         delay(2000)
         return "Library"
     }
