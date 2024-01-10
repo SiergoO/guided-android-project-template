@@ -1,13 +1,15 @@
 package com.template.cleanlibrary.core.domain.usecase
 
 import com.template.cleanlibrary.core.domain.repository.MainRepository
-import com.template.cleanlibrary.core.domain.usecase.base.SuspendUseCase
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.withContext
 
 class GetFirstTitleUseCase(
     private val mainRepository: MainRepository,
-    dispatcher: CoroutineDispatcher
-) : SuspendUseCase<Unit, String>(dispatcher) {
+    private val dispatcher: CoroutineDispatcher
+) {
 
-    override suspend fun execute(parameters: Unit): String = mainRepository.getFirstTitle()
+    suspend operator fun invoke(): String = withContext(dispatcher) {
+        mainRepository.getFirstTitle()
+    }
 }
