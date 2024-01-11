@@ -56,7 +56,7 @@ internal fun BookshelfScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = state.value.title,
+            text = state.value.bookshelf.toString(),
             color = MaterialTheme.colorScheme.onBackground,
             textAlign = TextAlign.Center
         )

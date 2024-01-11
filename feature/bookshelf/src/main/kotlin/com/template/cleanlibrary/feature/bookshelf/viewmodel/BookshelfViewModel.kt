@@ -1,12 +1,26 @@
 package com.template.cleanlibrary.feature.bookshelf.viewmodel
 
+import androidx.lifecycle.viewModelScope
 import com.template.cleanlibrary.core.common.base.BaseViewModel
+import com.template.cleanlibrary.feature.bookshelf.domain.GetBookshelfUseCase
+import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
+import org.orbitmvi.orbit.syntax.simple.reduce
 
 class BookshelfViewModel(
-    // TODO("Add bookshelf load usecase")
+    private val getBookshelfUseCase: GetBookshelfUseCase,
 ) : BaseViewModel<BookshelfViewModel.State, BookshelfViewModel.SideEffect>(State()) {
+
+    init {
+        viewModelScope.launch {
+            intent {
+                getBookshelfUseCase.invoke()
+                    .onSuccess { reduce { state.copy(bookshelf = it) } }
+                    .onFailure { postSideEffect(SideEffect.ShowError(it.message)) }
+            }
+        }
+    }
 
     fun sendAction(action: Action) {
         when (action) {
@@ -28,6 +42,6 @@ class BookshelfViewModel(
     }
 
     data class State(
-        val title: String = "Bookshelf",
+        val bookshelf: List<String> = emptyList(),
     )
 }
