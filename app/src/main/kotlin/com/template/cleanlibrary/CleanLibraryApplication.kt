@@ -2,8 +2,8 @@ package com.template.cleanlibrary
 
 import android.app.Application
 import com.template.cleanlibrary.app.BuildConfig
-import com.template.cleanlibrary.core.data.di.dataModules
-import com.template.cleanlibrary.core.domain.di.domainModule
+import com.template.cleanlibrary.core.data.dataModule
+import com.template.cleanlibrary.core.domain.domainModule
 import com.template.cleanlibrary.di.cleanLibraryModule
 import com.template.cleanlibrary.feature.authordetails.di.authorDetailsModule
 import com.template.cleanlibrary.feature.bookdetails.di.bookDetailsFeatureModule
@@ -24,6 +24,7 @@ class CleanLibraryApplication : Application() {
     private fun initKoin() {
         startKoin {
             androidContext(this@CleanLibraryApplication)
+            // App and feature modules
             modules(
                 cleanLibraryModule,
                 libraryModule,
@@ -31,8 +32,11 @@ class CleanLibraryApplication : Application() {
                 authorDetailsModule,
                 bookshelfModule
             )
-            modules(domainModule)
-            modules(dataModules)
+            // Core modules
+            modules(
+                domainModule,
+                dataModule
+            )
         }
     }
 
