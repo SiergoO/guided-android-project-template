@@ -4,7 +4,7 @@ import kotlinx.coroutines.Dispatchers
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val useCaseModule = module {
+val commonUseCaseModule = module {
 }
 
 val coroutineDispatcherModule = module {
@@ -13,7 +13,6 @@ val coroutineDispatcherModule = module {
     factory(named("Default")) { Dispatchers.Default }
 }
 
-val domainModules = listOf(
-    useCaseModule,
-    coroutineDispatcherModule
-)
+val domainModule = module {
+    includes(commonUseCaseModule, coroutineDispatcherModule)
+}
