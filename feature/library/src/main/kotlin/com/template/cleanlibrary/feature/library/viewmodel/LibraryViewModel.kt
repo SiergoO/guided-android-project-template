@@ -1,12 +1,26 @@
 package com.template.cleanlibrary.feature.library.viewmodel
 
+import androidx.lifecycle.viewModelScope
 import com.template.cleanlibrary.core.common.base.BaseViewModel
+import com.template.cleanlibrary.feature.library.domain.usecase.LoadBooksBySearchQueryUseCase
+import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
+import org.orbitmvi.orbit.syntax.simple.reduce
 
 class LibraryViewModel(
-    // TODO(Add initial books loading usecase")
+    private val loadBooksBySearchQueryUseCase: LoadBooksBySearchQueryUseCase,
 ) : BaseViewModel<LibraryViewModel.State, LibraryViewModel.SideEffect>(State()) {
+
+    init {
+        viewModelScope.launch {
+            intent {
+                loadBooksBySearchQueryUseCase.invoke("")
+                    .onSuccess { books -> reduce { state.copy(books = books) } }
+                    .onFailure { postSideEffect(SideEffect.ShowError(it.message)) }
+            }
+        }
+    }
 
     fun sendAction(action: Action) {
         when (action) {
@@ -28,6 +42,6 @@ class LibraryViewModel(
     }
 
     data class State(
-        val title: String = "Library",
+        val books: List<String> = emptyList(),
     )
 }

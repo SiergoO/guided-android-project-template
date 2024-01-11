@@ -16,7 +16,7 @@ class BookshelfViewModel(
         viewModelScope.launch {
             intent {
                 getBookshelfUseCase.invoke()
-                    .onSuccess { reduce { state.copy(bookshelf = it) } }
+                    .onSuccess { bookshelf -> reduce { state.copy(bookshelf = bookshelf) } }
                     .onFailure { postSideEffect(SideEffect.ShowError(it.message)) }
             }
         }

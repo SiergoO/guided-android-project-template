@@ -57,7 +57,7 @@ private fun LibraryScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = state.value.title,
+            text = state.value.books.toString(),
             color = MaterialTheme.colorScheme.onBackground,
             textAlign = TextAlign.Center
         )

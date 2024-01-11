@@ -15,4 +15,8 @@ class BookRepositoryImpl : BookRepository {
     override suspend fun getBookshelf(): List<String> {
         return listOf("Joe Rowling - Harry Potter and philosopher's stone")
     }
+
+    override suspend fun loadBooksBySearchQuery(query: String): List<String> {
+        return listOf("Joe Rowling - Harry Potter and philosopher's stone")
+    }
 }

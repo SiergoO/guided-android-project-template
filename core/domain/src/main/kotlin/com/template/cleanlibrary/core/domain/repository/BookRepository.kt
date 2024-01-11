@@ -7,4 +7,6 @@ interface BookRepository {
     suspend fun getAuthorDetailsById(authorId: Int): String
 
     suspend fun getBookshelf(): List<String>
+
+    suspend fun loadBooksBySearchQuery(query: String): List<String>
 }
