@@ -2,11 +2,11 @@ package com.template.cleanlibrary
 
 import android.app.Application
 import com.template.cleanlibrary.app.BuildConfig
-import com.template.cleanlibrary.core.data.dataModule
-import com.template.cleanlibrary.core.domain.domainModule
+import com.template.cleanlibrary.core.data.di.dataModule
+import com.template.cleanlibrary.core.domain.di.domainModule
 import com.template.cleanlibrary.di.cleanLibraryModule
 import com.template.cleanlibrary.feature.authordetails.di.authorDetailsModule
-import com.template.cleanlibrary.feature.bookdetails.di.bookDetailsFeatureModule
+import com.template.cleanlibrary.feature.bookdetails.di.bookDetailsModule
 import com.template.cleanlibrary.feature.bookshelf.di.bookshelfModule
 import com.template.cleanlibrary.feature.library.di.libraryModule
 import org.koin.android.ext.koin.androidContext
@@ -28,7 +28,7 @@ class CleanLibraryApplication : Application() {
             modules(
                 cleanLibraryModule,
                 libraryModule,
-                bookDetailsFeatureModule,
+                bookDetailsModule,
                 authorDetailsModule,
                 bookshelfModule
             )

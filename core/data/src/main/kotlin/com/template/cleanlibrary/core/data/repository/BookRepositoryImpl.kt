@@ -1,7 +1,6 @@
 package com.template.cleanlibrary.core.data.repository
 
 import com.template.cleanlibrary.core.domain.repository.BookRepository
-import kotlinx.coroutines.delay
 
 class BookRepositoryImpl : BookRepository {
 
@@ -9,8 +8,7 @@ class BookRepositoryImpl : BookRepository {
         return "Harry Potter and philosopher's stone"
     }
 
-    override suspend fun getSecondTitle(): String {
-        delay(2000)
-        return "Second"
+    override suspend fun getAuthorDetailsById(authorId: Int): String {
+        return "Joe Rowling"
     }
 }

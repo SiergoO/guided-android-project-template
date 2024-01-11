@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.core.domain
+package com.template.cleanlibrary.core.domain.di
 
 import kotlinx.coroutines.Dispatchers
 import org.koin.core.qualifier.named

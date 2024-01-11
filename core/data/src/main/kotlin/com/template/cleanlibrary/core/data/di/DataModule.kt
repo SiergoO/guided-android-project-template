@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.core.data
+package com.template.cleanlibrary.core.data.di
 
 import com.template.cleanlibrary.core.data.repository.BookRepositoryImpl
 import com.template.cleanlibrary.core.domain.repository.BookRepository

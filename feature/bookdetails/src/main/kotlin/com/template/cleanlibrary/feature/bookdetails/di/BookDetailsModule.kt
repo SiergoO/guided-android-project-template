@@ -14,6 +14,9 @@ private val bookDetailsDomainModule = module {
     factory { GetBookDetailsByIdUseCase(get(), get(named("IO"))) }
 }
 
-val bookDetailsFeatureModule = module {
-    includes(bookDetailsPresentationModule, bookDetailsDomainModule)
+val bookDetailsModule = module {
+    includes(
+        bookDetailsDomainModule,
+        bookDetailsPresentationModule,
+    )
 }

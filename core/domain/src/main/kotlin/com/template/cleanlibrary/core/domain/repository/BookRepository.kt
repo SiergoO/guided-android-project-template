@@ -4,5 +4,5 @@ interface BookRepository {
 
     suspend fun getBookDetailsById(bookId: Int): String
 
-    suspend fun getSecondTitle(): String
+    suspend fun getAuthorDetailsById(authorId: Int): String
 }
