@@ -1,16 +1,12 @@
 plugins {
-    id(libs.plugins.android.application.get().pluginId) apply true
-    id(libs.plugins.kotlin.android.get().pluginId) apply true
+    alias(libs.plugins.cleanlibrary.android.application)
 }
 
 android {
     namespace = AndroidConfig.Project.NAMESPACE + ".app"
-    compileSdk = AndroidConfig.SDK.COMPILE_VERSION
 
     defaultConfig {
         applicationId = AndroidConfig.App.APPLICATION_ID
-        minSdk = AndroidConfig.SDK.MIN_VERSION
-        targetSdk = AndroidConfig.SDK.TARGET_VERSION
 
         versionCode = AndroidConfig.App.VERSION_CODE
         versionName = AndroidConfig.App.VERSION_NAME
@@ -33,19 +29,6 @@ android {
             }
             editableOutput.outputFileName = apkName
         }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-
-        freeCompilerArgs = freeCompilerArgs + listOf(
-            "-opt-in=androidx.compose.animation.ExperimentalAnimationApi"
-        )
     }
 
     buildFeatures {

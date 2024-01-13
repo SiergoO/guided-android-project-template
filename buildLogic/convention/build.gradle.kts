@@ -25,6 +25,9 @@ dependencies {
 
 gradlePlugin {
     plugins {
-
+        register("androidApplication") {
+            id = "cleanlibrary.android.application"
+            implementationClass = "AndroidApplicationConventionPlugin"
+        }
     }
 }
