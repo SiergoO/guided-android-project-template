@@ -12,6 +12,7 @@ java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
 }
+
 tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
@@ -28,6 +29,12 @@ gradlePlugin {
         register("androidApplication") {
             id = "cleanlibrary.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"
+        }
+    }
+    plugins {
+        register("androidLibrary") {
+            id = "cleanlibrary.android.library"
+            implementationClass = "AndroidLibraryConventionPlugin"
         }
     }
 }
