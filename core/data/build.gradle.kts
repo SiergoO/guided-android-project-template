@@ -1,25 +1,10 @@
 plugins {
-    id(libs.plugins.android.library.get().pluginId) apply true
-    id(libs.plugins.kotlin.android.get().pluginId) apply true
+    alias(libs.plugins.cleanlibrary.android.library)
     id(libs.plugins.serialization.get().pluginId) apply true
 }
 
 android {
     namespace = AndroidConfig.Project.NAMESPACE + ".core.data"
-    compileSdk = AndroidConfig.SDK.COMPILE_VERSION
-
-    defaultConfig {
-        minSdk = AndroidConfig.SDK.MIN_VERSION
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-    }
 
     packaging {
         resources.excludes += "META-INF/*"
