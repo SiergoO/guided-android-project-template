@@ -38,6 +38,12 @@ gradlePlugin {
         }
     }
     plugins {
+        register("androidKoin") {
+            id = "cleanlibrary.android.application.koin"
+            implementationClass = "AndroidKoinConventionPlugin"
+        }
+    }
+    plugins {
         register("androidLibrary") {
             id = "cleanlibrary.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
