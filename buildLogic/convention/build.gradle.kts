@@ -38,6 +38,12 @@ gradlePlugin {
         }
     }
     plugins {
+        register("androidLibraryCompose") {
+            id = "cleanlibrary.android.library.compose"
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
+    }
+    plugins {
         register("androidFeature") {
             id = "cleanlibrary.android.feature"
             implementationClass = "AndroidFeatureConventionPlugin"
