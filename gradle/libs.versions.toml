@@ -63,7 +63,7 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serializationJson" }
-splash = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreen" }
+core-splash-screen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreen" }
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
@@ -82,7 +82,6 @@ material = { group = "com.google.android.material", name = "material", version.r
 # Bundle in alphabetical order
 database = ["room-compiler", "room-ktx", "room-runtime"]
 di = ["koin-android", "koin-core"]
-logging = ["timber"]
 orbit = [
     "orbit-compose",
     "orbit-core",
@@ -112,6 +111,7 @@ serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref 
 
 # Plugins defined by this project
 cleanlibrary-android-application = { id = "cleanlibrary.android.application", version = "unspecified" }
+cleanlibrary-android-application-compose = { id = "cleanlibrary.android.application.compose", version = "unspecified" }
 cleanlibrary-android-library = { id = "cleanlibrary.android.library", version = "unspecified" }
 cleanlibrary-android-library-compose = { id = "cleanlibrary.android.library.compose", version = "unspecified" }
 cleanlibrary-android-feature = { id = "cleanlibrary.android.feature", version = "unspecified" }

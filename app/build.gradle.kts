@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.cleanlibrary.android.application)
+    alias(libs.plugins.cleanlibrary.android.application.compose)
 }
 
 android {
@@ -32,12 +33,7 @@ android {
     }
 
     buildFeatures {
-        compose = true
         buildConfig = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = AndroidConfig.Compose.COMPILER_VERSION
     }
 
     packaging {
@@ -60,10 +56,9 @@ dependencies {
     implementation(projects.feature.bookshelf)
 
     implementation(libs.bundles.di)
-    implementation(libs.bundles.logging)
-//    implementation(libs.bundles.ui)
+    api(libs.timber)
     implementation(libs.compose.navigation)
     implementation(libs.compose.permission)
     implementation(libs.orbit.core)
-    implementation(libs.splash)
+    implementation(libs.core.splash.screen)
 }

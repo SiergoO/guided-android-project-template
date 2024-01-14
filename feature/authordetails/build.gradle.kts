@@ -18,5 +18,4 @@ dependencies {
     implementation(libs.bundles.orbit)
     implementation(libs.orbit.compose)
 
-    implementation(libs.bundles.logging)
 }

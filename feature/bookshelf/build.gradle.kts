@@ -8,17 +8,11 @@ android {
 }
 
 dependencies {
-
     implementation(projects.core.common)
     implementation(projects.core.domain)
 
     implementation(libs.bundles.di)
     implementation(libs.koin.compose)
-
-    
-
     implementation(libs.bundles.orbit)
     implementation(libs.orbit.compose)
-
-    implementation(libs.bundles.logging)
 }

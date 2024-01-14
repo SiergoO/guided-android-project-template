@@ -15,7 +15,6 @@ dependencies {
     api(projects.core.common)
 
     implementation(libs.bundles.di)
-    implementation(libs.bundles.logging)
     implementation(libs.bundles.network)
     implementation(libs.coroutines.core)
     implementation(libs.datastore)
