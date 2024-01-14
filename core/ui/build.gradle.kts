@@ -8,8 +8,6 @@ android {
 }
 
 dependencies {
-//    api(libs.compose.runtime)
-    implementation(libs.bundles.di)
-
     implementation(libs.orbit.core)
+    implementation(libs.viewmodel.ktx)
 }

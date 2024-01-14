@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.cleanlibrary.android.library)
     alias(libs.plugins.cleanlibrary.android.library.compose)
+    alias(libs.plugins.cleanlibrary.android.koin)
 }
 
 android {
@@ -8,6 +9,5 @@ android {
 }
 
 dependencies {
-    implementation(libs.bundles.di)
     implementation(libs.orbit.core)
 }

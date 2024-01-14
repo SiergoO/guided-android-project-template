@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.cleanlibrary.android.application)
     alias(libs.plugins.cleanlibrary.android.application.compose)
+    alias(libs.plugins.cleanlibrary.android.koin)
 }
 
 android {
@@ -55,7 +56,6 @@ dependencies {
     implementation(projects.feature.authordetails)
     implementation(projects.feature.bookshelf)
 
-    implementation(libs.bundles.di)
     api(libs.timber)
     implementation(libs.compose.navigation)
     implementation(libs.compose.permission)

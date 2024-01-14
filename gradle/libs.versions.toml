@@ -81,7 +81,6 @@ material = { group = "com.google.android.material", name = "material", version.r
 
 # Bundle in alphabetical order
 database = ["room-compiler", "room-ktx", "room-runtime"]
-di = ["koin-android", "koin-core"]
 orbit = [
     "orbit-compose",
     "orbit-core",
