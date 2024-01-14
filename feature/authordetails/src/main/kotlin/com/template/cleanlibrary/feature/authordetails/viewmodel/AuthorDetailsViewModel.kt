@@ -2,7 +2,7 @@ package com.template.cleanlibrary.feature.authordetails.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.template.cleanlibrary.core.common.base.BaseViewModel
+import com.template.cleanlibrary.core.ui.base.BaseViewModel
 import com.template.cleanlibrary.feature.authordetails.navigation.AuthorArgs
 import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.syntax.simple.intent

@@ -9,6 +9,5 @@ android {
 
 dependencies {
     implementation(libs.bundles.di)
-    implementation(libs.compose.system.ui)
     implementation(libs.orbit.core)
 }

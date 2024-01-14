@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.core.common.base
+package com.template.cleanlibrary.core.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

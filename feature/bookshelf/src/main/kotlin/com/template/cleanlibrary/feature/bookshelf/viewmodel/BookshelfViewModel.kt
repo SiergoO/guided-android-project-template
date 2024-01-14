@@ -1,7 +1,7 @@
 package com.template.cleanlibrary.feature.bookshelf.viewmodel
 
 import androidx.lifecycle.viewModelScope
-import com.template.cleanlibrary.core.common.base.BaseViewModel
+import com.template.cleanlibrary.core.ui.base.BaseViewModel
 import com.template.cleanlibrary.feature.bookshelf.domain.GetBookshelfUseCase
 import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.syntax.simple.intent

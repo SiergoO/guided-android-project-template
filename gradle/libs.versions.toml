@@ -54,22 +54,26 @@ data_store = "1.0.0"
 
 # Logging
 timber = "5.0.1"
+core-ktx = "1.9.0"
+androidx-test-ext-junit = "1.1.5"
+appcompat = "1.6.1"
+material = "1.11.0"
 
 [libraries]
 
 # Dependencies in alphabetical order
 compose_activity = { module = "androidx.activity:activity-compose", version.ref = "compose_activity" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-#compose_icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose_core" }
-#compose_foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose_core" }
-#compose_ui = { module = "androidx.compose.ui:ui", version.ref = "compose_core" }
-#compose_material = { module = "androidx.compose.material:material", version.ref = "compose_core" }
-#compose_material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout" }
+compose-material-iconsExtended = { group = "androidx.compose.material", name = "material-icons-extended" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-ui-util = { group = "androidx.compose.ui", name = "ui-util" }
 compose_navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose_navigation" }
 compose_permission = { module = "com.google.accompanist:accompanist-permissions", version.ref = "compose_accompaniest" }
-#compose_preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose_core" }
-compose_system_ui = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "compose_accompaniest" }
-#compose_tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose_core" }
 coroutines_android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 coroutines_core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "data_store" }
@@ -103,6 +107,10 @@ viewmodel_ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version
 build_gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle_plugin" }
 kotlin_gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 serialization_gradle = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [bundles]
 

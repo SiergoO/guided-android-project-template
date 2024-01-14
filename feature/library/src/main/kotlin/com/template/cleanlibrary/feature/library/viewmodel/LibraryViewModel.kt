@@ -1,7 +1,7 @@
 package com.template.cleanlibrary.feature.library.viewmodel
 
 import androidx.lifecycle.viewModelScope
-import com.template.cleanlibrary.core.common.base.BaseViewModel
+import com.template.cleanlibrary.core.ui.base.BaseViewModel
 import com.template.cleanlibrary.feature.library.domain.usecase.LoadBooksBySearchQueryUseCase
 import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.syntax.simple.intent

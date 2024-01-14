@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.core.ui.icon
+package com.template.cleanlibrary.designsystem.icon
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.CollectionsBookmark

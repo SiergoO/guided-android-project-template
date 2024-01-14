@@ -2,7 +2,7 @@ package com.template.cleanlibrary.feature.bookdetails.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.template.cleanlibrary.core.common.base.BaseViewModel
+import com.template.cleanlibrary.core.ui.base.BaseViewModel
 import com.template.cleanlibrary.feature.bookdetails.domain.usecase.GetBookDetailsByIdUseCase
 import com.template.cleanlibrary.feature.bookdetails.navigation.BookArgs
 import kotlinx.coroutines.launch

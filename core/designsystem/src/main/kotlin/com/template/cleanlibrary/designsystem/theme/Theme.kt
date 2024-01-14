@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.theme
+package com.template.cleanlibrary.designsystem.theme
 
 import android.app.Activity
 import android.os.Build
@@ -15,7 +15,6 @@ import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
-import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
     primary = GreekFlagBlue,
@@ -80,10 +79,6 @@ fun ApplicationTheme(
             (view.context as Activity).window.apply {
                 statusBarColor = Color.Transparent.toArgb()
                 navigationBarColor = Color.Transparent.toArgb()
-                WindowCompat.getInsetsController(this, view).apply {
-                    isAppearanceLightStatusBars = !darkTheme
-                    isAppearanceLightNavigationBars = !darkTheme
-                }
             }
         }
     }

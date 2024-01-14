@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.core.ui.components
+package com.template.cleanlibrary.designsystem.components
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material3.MaterialTheme

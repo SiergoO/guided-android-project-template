@@ -14,7 +14,7 @@ dependencies {
     implementation(libs.bundles.di)
     implementation(libs.koin.compose)
 
-    implementation(libs.compose.system.ui)
+    
 
     implementation(libs.bundles.orbit)
     implementation(libs.orbit.compose)
