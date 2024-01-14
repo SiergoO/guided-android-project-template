@@ -1,6 +1,6 @@
 package com.template.cleanlibrary.feature.bookshelf.domain
 
-import com.template.cleanlibrary.core.domain.repository.BookRepository
+import com.template.cleanlibrary.core.data.repository.BookRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 

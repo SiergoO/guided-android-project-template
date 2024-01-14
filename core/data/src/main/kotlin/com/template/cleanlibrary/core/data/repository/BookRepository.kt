@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.core.domain.repository
+package com.template.cleanlibrary.core.data.repository
 
 interface BookRepository {
 

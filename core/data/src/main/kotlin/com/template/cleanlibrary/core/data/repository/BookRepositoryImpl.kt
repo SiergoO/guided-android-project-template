@@ -1,7 +1,5 @@
 package com.template.cleanlibrary.core.data.repository
 
-import com.template.cleanlibrary.core.domain.repository.BookRepository
-
 class BookRepositoryImpl : BookRepository {
 
     override suspend fun getBookDetailsById(bookId: Int): String {

@@ -12,7 +12,7 @@ android {
 }
 
 dependencies {
-    implementation(projects.core.domain)
+    api(projects.core.common)
 
     implementation(libs.bundles.di)
     implementation(libs.bundles.logging)

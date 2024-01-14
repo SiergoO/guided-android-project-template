@@ -18,9 +18,9 @@ object AndroidConfig {
     }
 
     object SDK {
-        const val COMPILE_VERSION = 33
+        const val COMPILE_VERSION = 34
         const val MIN_VERSION = 24
-        const val TARGET_VERSION = 33
+        const val TARGET_VERSION = 34
     }
 
     object ApplicationOutput {

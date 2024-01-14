@@ -7,7 +7,9 @@ android {
 }
 
 dependencies {
+    api(projects.core.data)
+
     implementation(libs.bundles.logging)
-    implementation(libs.coroutines.core)
     implementation(libs.koin.core)
+    implementation(libs.coroutines.core)
 }
