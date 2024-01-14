@@ -60,7 +60,7 @@ dependencies {
 
     implementation(libs.bundles.di)
     implementation(libs.bundles.logging)
-    implementation(libs.bundles.ui)
+//    implementation(libs.bundles.ui)
     implementation(libs.compose.navigation)
     implementation(libs.compose.permission)
     implementation(libs.orbit.core)

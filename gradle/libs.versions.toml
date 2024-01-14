@@ -60,16 +60,16 @@ timber = "5.0.1"
 # Dependencies in alphabetical order
 compose_activity = { module = "androidx.activity:activity-compose", version.ref = "compose_activity" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-compose_icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose_core" }
-compose_foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose_core" }
-compose_ui = { module = "androidx.compose.ui:ui", version.ref = "compose_core" }
-compose_material = { module = "androidx.compose.material:material", version.ref = "compose_core" }
-compose_material3 = { module = "androidx.compose.material3:material3", version.ref = "compose_material3" }
+#compose_icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose_core" }
+#compose_foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose_core" }
+#compose_ui = { module = "androidx.compose.ui:ui", version.ref = "compose_core" }
+#compose_material = { module = "androidx.compose.material:material", version.ref = "compose_core" }
+#compose_material3 = { group = "androidx.compose.material3", name = "material3" }
 compose_navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose_navigation" }
 compose_permission = { module = "com.google.accompanist:accompanist-permissions", version.ref = "compose_accompaniest" }
-compose_preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose_core" }
+#compose_preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose_core" }
 compose_system_ui = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "compose_accompaniest" }
-compose_tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose_core" }
+#compose_tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose_core" }
 coroutines_android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 coroutines_core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "data_store" }
@@ -107,14 +107,14 @@ serialization_gradle = { module = "org.jetbrains.kotlin:kotlin-serialization", v
 [bundles]
 
 # Bundle in alphabetical order
-ui = [
-    "compose_activity",
-    "compose_icons",
-    "compose_foundation",
-    "compose_material",
-    "compose_material3",
-    "compose_ui"
-]
+#ui = [
+#    "compose_activity",
+#    "compose_icons",
+#    "compose_foundation",
+#    "compose_material",
+#    "compose_material3",
+#    "compose_ui"
+#]
 concurrency = ["coroutines_core", "coroutines_android"]
 database = ["room_compiler", "room_ktx", "room_runtime"]
 di = ["koin_android", "koin_core"]
