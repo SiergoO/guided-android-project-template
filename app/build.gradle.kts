@@ -66,7 +66,4 @@ dependencies {
     implementation(libs.compose.permission)
     implementation(libs.orbit.core)
     implementation(libs.splash)
-
-    implementation(libs.bundles.test)
-    androidTestImplementation(libs.bundles.test.android)
 }

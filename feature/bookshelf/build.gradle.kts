@@ -21,7 +21,4 @@ dependencies {
     implementation(libs.orbit.compose)
 
     implementation(libs.bundles.logging)
-
-    implementation(libs.bundles.test)
-    androidTestImplementation(libs.bundles.test.android)
 }
