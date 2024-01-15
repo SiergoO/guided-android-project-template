@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".core.designsystem"
+    namespace = "com.template.cleanlibrary.core.designsystem"
 }
 
 dependencies {

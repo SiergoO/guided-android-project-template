@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".core.ui"
+    namespace = "com.template.cleanlibrary.core.ui"
 }
 
 dependencies {

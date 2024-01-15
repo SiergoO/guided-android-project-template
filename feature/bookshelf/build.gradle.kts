@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".feature.bookshelf"
+    namespace = "com.template.cleanlibrary.feature.bookshelf"
 }
 
 dependencies {

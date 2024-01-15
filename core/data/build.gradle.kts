@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".core.data"
+    namespace = "com.template.cleanlibrary.core.data"
 
     packaging {
         resources.excludes += "META-INF/*"

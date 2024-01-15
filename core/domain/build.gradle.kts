@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".core.domain"
+    namespace = "com.template.cleanlibrary.core.domain"
 }
 
 dependencies {

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".core.common"
+    namespace = "com.template.cleanlibrary.core.common"
 }
 
 dependencies {

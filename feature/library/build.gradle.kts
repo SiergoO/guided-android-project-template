@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".feature.library"
+    namespace = "com.template.cleanlibrary.feature.library"
 }
 
 dependencies {

@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = AndroidConfig.Project.NAMESPACE + ".app"
+    namespace = "com.template.cleanlibrary.app"
 
     defaultConfig {
-        applicationId = AndroidConfig.App.APPLICATION_ID
+        applicationId = "com.template.cleanlibrary"
 
-        versionCode = AndroidConfig.App.VERSION_CODE
-        versionName = AndroidConfig.App.VERSION_NAME
+        versionCode = 1
+        versionName = "0.0.1"
     }
 
     buildTypes {
@@ -26,10 +26,8 @@ android {
     applicationVariants.all {
         outputs.all {
             val editableOutput = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
-            val apkName = with(AndroidConfig.ApplicationOutput) {
-                "$APPLICATION_NAME-${VERSION_NAME}($VERSION_CODE)-${buildType.name}.apk"
-            }
-            editableOutput.outputFileName = apkName
+            editableOutput.outputFileName =
+                "Clean-library-${defaultConfig.versionName}(${defaultConfig.versionCode})-${buildType.name}.apk"
         }
     }
 
@@ -45,20 +43,19 @@ android {
 }
 
 dependencies {
-
     implementation(projects.core.common)
     implementation(projects.core.data)
+    implementation(projects.core.designsystem)
     implementation(projects.core.domain)
     implementation(projects.core.ui)
-    implementation(projects.core.designsystem)
-    implementation(projects.feature.library)
-    implementation(projects.feature.bookdetails)
     implementation(projects.feature.authordetails)
+    implementation(projects.feature.bookdetails)
     implementation(projects.feature.bookshelf)
+    implementation(projects.feature.library)
 
-    api(libs.timber)
     implementation(libs.compose.navigation)
     implementation(libs.compose.permission)
-    implementation(libs.orbit.core)
     implementation(libs.core.splash.screen)
+    implementation(libs.orbit.core)
+    implementation(libs.timber)
 }
