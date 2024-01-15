@@ -56,6 +56,5 @@ dependencies {
     implementation(libs.compose.navigation)
     implementation(libs.compose.permission)
     implementation(libs.core.splash.screen)
-    implementation(libs.orbit.core)
     implementation(libs.timber)
 }

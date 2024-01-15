@@ -56,8 +56,7 @@ ktor-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation"
 ktor-serialization = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
 orbit-compose = { group = "org.orbit-mvi", name = "orbit-compose", version.ref = "orbit" }
 orbit-core = { group = "org.orbit-mvi", name = "orbit-core", version.ref = "orbit" }
-orbit-test = { group = "org.orbit-mvi", name = "orbit-test", version.ref = "orbit" }
-orbit-vievmodel = { group = "org.orbit-mvi", name = "orbit-viewmodel", version.ref = "orbit" }
+orbit-viewmodel = { group = "org.orbit-mvi", name = "orbit-viewmodel", version.ref = "orbit" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
@@ -80,8 +79,7 @@ database = ["room-compiler", "room-ktx", "room-runtime"]
 orbit = [
     "orbit-compose",
     "orbit-core",
-    "orbit-test",
-    "orbit-vievmodel"
+    "orbit-viewmodel"
 ]
 network = [
     "ktor-auth",
@@ -106,7 +104,8 @@ serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref 
 # Plugins defined by this project
 cleanlibrary-android-application = { id = "cleanlibrary.android.application", version = "unspecified" }
 cleanlibrary-android-application-compose = { id = "cleanlibrary.android.application.compose", version = "unspecified" }
-cleanlibrary-android-koin = { id = "cleanlibrary.android.application.koin", version = "unspecified" }
+cleanlibrary-android-feature = { id = "cleanlibrary.android.feature", version = "unspecified" }
+cleanlibrary-android-koin = { id = "cleanlibrary.android.koin", version = "unspecified" }
 cleanlibrary-android-library = { id = "cleanlibrary.android.library", version = "unspecified" }
 cleanlibrary-android-library-compose = { id = "cleanlibrary.android.library.compose", version = "unspecified" }
-cleanlibrary-android-feature = { id = "cleanlibrary.android.feature", version = "unspecified" }
+cleanlibrary-android-orbit = { id = "cleanlibrary.android.orbit", version = "unspecified" }

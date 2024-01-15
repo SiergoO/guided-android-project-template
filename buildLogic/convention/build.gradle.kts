@@ -38,8 +38,14 @@ gradlePlugin {
         }
     }
     plugins {
+        register("androidFeature") {
+            id = "cleanlibrary.android.feature"
+            implementationClass = "AndroidFeatureConventionPlugin"
+        }
+    }
+    plugins {
         register("androidKoin") {
-            id = "cleanlibrary.android.application.koin"
+            id = "cleanlibrary.android.koin"
             implementationClass = "AndroidKoinConventionPlugin"
         }
     }
@@ -56,9 +62,9 @@ gradlePlugin {
         }
     }
     plugins {
-        register("androidFeature") {
-            id = "cleanlibrary.android.feature"
-            implementationClass = "AndroidFeatureConventionPlugin"
+        register("androidOrbit") {
+            id = "cleanlibrary.android.orbit"
+            implementationClass = "AndroidOrbitConventionPlugin"
         }
     }
 }

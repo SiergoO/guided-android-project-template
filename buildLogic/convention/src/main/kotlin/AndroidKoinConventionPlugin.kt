@@ -7,8 +7,8 @@ class AndroidKoinConventionPlugin: Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             dependencies {
-                "implementation"(libs.findLibrary("koin.android").get())
-                "implementation"(libs.findLibrary("koin.core").get())
+                add("implementation", libs.findLibrary("koin.android").get())
+                add("implementation", libs.findLibrary("koin.core").get())
             }
         }
     }

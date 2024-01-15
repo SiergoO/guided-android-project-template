@@ -7,7 +7,8 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply {
                 apply("cleanlibrary.android.library")
-//                apply("cleanlibrary.android.koin")
+                apply("cleanlibrary.android.koin")
+                apply("cleanlibrary.android.orbit")
             }
 
             dependencies {
