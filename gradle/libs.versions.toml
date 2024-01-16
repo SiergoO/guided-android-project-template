@@ -76,11 +76,6 @@ test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "t
 [bundles]
 # Bundle in alphabetical order
 database = ["room-compiler", "room-ktx", "room-runtime"]
-orbit = [
-    "orbit-compose",
-    "orbit-core",
-    "orbit-viewmodel"
-]
 network = [
     "ktor-auth",
     "ktor-cio",
