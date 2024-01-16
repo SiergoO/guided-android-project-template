@@ -18,7 +18,9 @@ internal fun Project.configureAndroidCompose(
 
         dependencies {
             val bom = libs.findLibrary("compose-bom").get()
+            val koinCompose = libs.findLibrary("koin-compose").get()
             add("implementation", platform(bom))
+            add("implementation", koinCompose)
         }
     }
 }
