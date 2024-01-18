@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.designsystem.theme
+package com.template.cleanlibrary.core.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 

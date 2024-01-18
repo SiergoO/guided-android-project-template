@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.designsystem.components
+package com.template.cleanlibrary.core.designsystem.components
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.height

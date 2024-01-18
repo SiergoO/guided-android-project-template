@@ -12,8 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.rememberNavController
-import com.template.cleanlibrary.designsystem.components.BottomNavigationBar
-import com.template.cleanlibrary.designsystem.components.BottomNavigationBarItem
+import com.template.cleanlibrary.core.designsystem.components.BottomNavigationBarItem
 import com.template.cleanlibrary.navigation.CleanLibraryNavHost
 import com.template.cleanlibrary.navigation.TopLevelDestination
 import com.template.cleanlibrary.navigation.getCurrentTopLevelDestination
@@ -53,7 +52,7 @@ private fun CleanLibraryBottomBar(
     currentTopLevelDestination: TopLevelDestination,
     onNavigateToDestination: (TopLevelDestination) -> Unit,
 ) {
-    com.template.cleanlibrary.designsystem.components.BottomNavigationBar(
+    com.template.cleanlibrary.core.designsystem.components.BottomNavigationBar(
         modifier = modifier
     ) {
         topLevelDestinations.forEach { destination ->

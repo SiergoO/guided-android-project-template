@@ -11,7 +11,6 @@ import androidx.core.view.WindowCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.template.cleanlibrary.designsystem.theme.ApplicationTheme
 import com.template.cleanlibrary.ui.CleanLibraryRoute
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
@@ -48,7 +47,7 @@ class MainActivity : ComponentActivity() {
         }
 
         setContent {
-            com.template.cleanlibrary.designsystem.theme.ApplicationTheme {
+            com.template.cleanlibrary.core.designsystem.theme.ApplicationTheme {
                 CleanLibraryRoute()
             }
         }
