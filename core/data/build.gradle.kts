@@ -15,7 +15,6 @@ android {
 dependencies {
     api(projects.core.common)
 
-    implementation(libs.bundles.network)
     implementation(libs.coroutines.core)
     implementation(libs.datastore)
     implementation(libs.serialization.json)

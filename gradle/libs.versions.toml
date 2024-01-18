@@ -73,7 +73,7 @@ serialization-gradle = { module = "org.jetbrains.kotlin:kotlin-serialization", v
 [bundles]
 # Bundle in alphabetical order
 database = ["room-compiler", "room-ktx", "room-runtime"]
-network = [
+ktor = [
     "ktor-auth",
     "ktor-cio",
     "ktor-core",
