@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.feature.library.viewmodel
+package com.template.cleanlibrary.feature.library.presentation
 
 import androidx.lifecycle.viewModelScope
 import com.template.cleanlibrary.core.ui.base.BaseViewModel

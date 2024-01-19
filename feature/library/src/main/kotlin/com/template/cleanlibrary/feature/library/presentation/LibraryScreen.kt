@@ -1,4 +1,4 @@
-package com.template.cleanlibrary.feature.library.ui
+package com.template.cleanlibrary.feature.library.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,10 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.template.cleanlibrary.feature.library.viewmodel.LibraryViewModel
-import com.template.cleanlibrary.feature.library.viewmodel.LibraryViewModel.SideEffect.ShowError
-import com.template.cleanlibrary.feature.library.viewmodel.LibraryViewModel.SideEffect.NavigateToBookDetailsScreen
-import com.template.cleanlibrary.feature.library.viewmodel.LibraryViewModel.Action.BookClicked
+import com.template.cleanlibrary.feature.library.presentation.LibraryViewModel.SideEffect.ShowError
+import com.template.cleanlibrary.feature.library.presentation.LibraryViewModel.SideEffect.NavigateToBookDetailsScreen
+import com.template.cleanlibrary.feature.library.presentation.LibraryViewModel.Action.BookClicked
 import org.koin.androidx.compose.getViewModel
 import org.orbitmvi.orbit.compose.collectAsState
 import org.orbitmvi.orbit.compose.collectSideEffect

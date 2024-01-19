@@ -8,7 +8,7 @@ import com.template.cleanlibrary.di.cleanLibraryModule
 import com.template.cleanlibrary.feature.authordetails.di.authorDetailsModule
 import com.template.cleanlibrary.feature.bookdetails.di.bookDetailsModule
 import com.template.cleanlibrary.feature.bookshelf.di.bookshelfModule
-import com.template.cleanlibrary.feature.library.di.libraryModule
+import com.template.cleanlibrary.feature.library.featureLibraryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
@@ -27,7 +27,7 @@ class CleanLibraryApplication : Application() {
             // App and feature modules
             modules(
                 cleanLibraryModule,
-                libraryModule,
+                featureLibraryModule,
                 bookDetailsModule,
                 authorDetailsModule,
                 bookshelfModule
