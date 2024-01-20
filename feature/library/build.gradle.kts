@@ -10,5 +10,7 @@ android {
 }
 
 dependencies {
-    implementation(projects.core.data)
+    implementation(projects.core.network)
+    // TODO("Create ktor feature plugin")
+    implementation(libs.bundles.ktor)
 }
